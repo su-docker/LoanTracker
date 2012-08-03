@@ -1,0 +1,18 @@
+td {
+    border: 1px solid green;
+    padding: 5px 20px 5px 20px;
+}
+
+#visual_view {
+    border: 1px solid #a52a2a;
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+line {
+    stroke: gray;
+    stroke-width: 1px;
+}
