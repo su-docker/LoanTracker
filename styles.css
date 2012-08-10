@@ -1,6 +1,11 @@
+table {
+    border-spacing: 0px;
+    height: 100%;
+}
+
 td {
     border: 1px solid green;
-    padding: 5px 20px 5px 20px;
+    /*padding: 5px 20px 5px 20px;*/
 }
 
 #visual_view {
@@ -15,4 +20,74 @@ td {
 line {
     stroke: gray;
     stroke-width: 1px;
+}
+
+.screen {
+    width: 480px;
+    height: 800px;
+    border: 1px solid #000000;
+    font-size: 24px;
+}
+
+.heading-section {
+    background-color: #f5f5dc;
+    height: 5%;
+}
+
+.heading {
+    color: #000000;
+    padding: 1%;
+}
+
+.graph-section {
+    height: 50%;
+}
+
+.details-section {
+    background-color: #fff8dc;
+    height: 45%;
+    padding: 1%;
+    overflow: scroll;
+}
+
+.detail-tile {
+    width: 230px;
+    height: 100%;
+    /*border: 1px solid #5f9ea0;*/
+    float: left;
+    display: table-column;
+}
+
+.date {
+    font-size: 18px;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.interest {
+    text-align: center;
+    padding-top: 10%;
+}
+
+.emi {
+    text-align: center;
+    padding-top: 10%;
+    font-size: 32px;
+}
+
+.emi-interest, .emi-principal {
+    font-size: 18px;
+    width: 48%;
+    display: inline-block;
+}
+
+.emi-interest {
+    text-align: right;
+}
+
+.balance {
+    font-size: 42px;
+    color: red;
+    text-align: center;
+    padding-top: 40%;
 }

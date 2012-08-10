@@ -4,32 +4,48 @@
 <head>
     <title></title>
     <link type="text/css" rel="stylesheet" href="styles.css"/>
-    <script src="script/d3.v2.js"></script>
-    <script src="script/jquery-1.7.2.js"></script>
+    <script src="script/zepto.min.js"></script>
+    <script src="script/ICanHaz.min.js"></script>
+    <script src="script/rupee.js"></script>
     <script src="script/loan_details.js"></script>
-    <script src="script/tabulator.js"></script>
-    <script src="script/visualizer.js"></script>
-    <script src="script/main.js"></script>
+    <script src="script/scroller.js"></script>
+    <script id="detailTile" type="text/html">
+        <td>
+            <div class="detail-tile">
+                <div class="date">
+                    {{ duration }}
+                </div>
+                <div class="interest">
+                    {{ interestRate }}
+                </div>
+                <div class="emi">
+                    {{ EMIAmt }}
+                </div>
+                <div class="emi-split">
+                    <div class="emi-interest">{{ interestAmt }}</div>
+                    <div class="emi-principal">{{ principleAmt }}</div>
+                </div>
+                <div class="balance">
+                    {{ balanceAmt }}
+                </div>
+            </div>
+        </td>
+    </script>
 </head>
 <body>
-<table id="table_view"></table>
-<svg id="visual_view">
-    <defs>
-        <path id="myTextPath"
-              d="M75,30
-                 a1,1 0 0,0 100,0"/>
-        <path id="myTextPath2"
-              d="M75,30
-                 a2,1 0 0,0 100,0"/>
-    </defs>
+<div class="screen">
+    <div class="heading-section">
+        <div class="heading">Royal Homes Loan</div>
+    </div>
+    <div class="graph-section">
 
-    <text x="10" y="100" style="stroke: #000000;">
-        <textPath xlink:href="#myTextPath" >
-            <textPath xlink:href="#myTextPath2">
-                Text along a curved path...
-            </textPath>
-        </textPath>
-    </text>
-</svg>
+    </div>
+    <div class="details-section">
+        <table>
+            <tr>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

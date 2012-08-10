@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="styles.css"/>
+    <script src="script/d3.v2.js"></script>
+    <script src="script/jquery-1.7.2.js"></script>
+    <script src="script/loan_details.js"></script>
+    <script src="script/tabulator.js"></script>
+    <script src="script/visualizer.js"></script>
+    <script src="script/main.js"></script>
+</head>
+<body>
+<table id="table_view"></table>
+<svg id="visual_view">
+    <defs>
+        <path id="myTextPath"
+              d="M75,30
+                 a1,1 0 0,0 100,0"/>
+        <path id="myTextPath2"
+              d="M75,30
+                 a2,1 0 0,0 100,0"/>
+    </defs>
+
+    <text x="10" y="100" style="stroke: #000000;">
+        <textPath xlink:href="#myTextPath" >
+            <textPath xlink:href="#myTextPath2">
+                Text along a curved path...
+            </textPath>
+        </textPath>
+    </text>
+</svg>
+</body>
+</html>
