@@ -1,12 +1,13 @@
 function Rupee(value) {
-    this.value = value;
 
-    this.round = function() {
-        return Math.round(this.value * 100) / 100;
+    function round(value) {
+        return Math.round(value * 100) / 100;
     }
 
+    this.value = round(value);
+
     this.prettyPrint = function () {
-        var number = this.round().toString(),
+        var number = this.value.toString(),
             sign = number.indexOf("-") != -1 ? number[0] : "";
         number = number.replace("-", "");
         var decimalInd = number.indexOf(".") != -1 ? number.indexOf(".") : number.length,

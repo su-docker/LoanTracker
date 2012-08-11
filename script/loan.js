@@ -1,11 +1,11 @@
-function LoanDetails(amount, tenure, emi) {
+function Loan(amount, tenure, emi) {
     this.amount = amount;
     this.tenure = tenure;
     this.emi = emi;
     this.windfall = {};
     this.interestRates = {};
 
-    this.toHumanTimeFrame = function (value) {
+    function toHumanTimeFrame(value) {
         var timeframe = "",
             year = Math.floor(value / 12),
             month = value % 12;
@@ -22,7 +22,7 @@ function LoanDetails(amount, tenure, emi) {
             var interestPortion = (balance * this.interestRates[month] / 100) / 12,
                 principlePortion = (this.emi + (this.windfall[month] || 0)) - interestPortion,
                 balance = balance - principlePortion,
-                monthData = {"duration":this.toHumanTimeFrame(month),
+                monthData = {"duration": toHumanTimeFrame(month),
                     "interestRate":this.interestRates[month],
                     "EMIAmt" : new Rupee(interestPortion + principlePortion).prettyPrint(),
                     "interestAmt": new Rupee(interestPortion).prettyPrint(),
