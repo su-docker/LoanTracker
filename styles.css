@@ -5,27 +5,13 @@ table {
 
 td {
     border: 1px solid green;
-    /*padding: 5px 20px 5px 20px;*/
-}
-
-#visual_view {
-    border: 1px solid #a52a2a;
-    width: 400px;
-    height: 600px;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-}
-
-line {
-    stroke: gray;
-    stroke-width: 1px;
 }
 
 .screen {
     border: 1px solid #000000;
     font-size: 24px;
-    }
+    width: 100%;
+}
 
 .heading-section {
     background-color: #f5f5dc;
@@ -51,7 +37,6 @@ line {
 .detail-tile {
     width: 230px;
     height: 100%;
-    /*border: 1px solid #5f9ea0;*/
     float: left;
     display: table-column;
 }
