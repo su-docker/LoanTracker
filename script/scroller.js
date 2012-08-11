@@ -8,7 +8,7 @@ Scroller = function () {
         $(".details-section").dragscroll({
             scrollBars : true,
             autoFadeBars : true,
-            smoothness : 15,
+            smoothness : 18,
             mouseWheelVelocity : 2
         });
     }

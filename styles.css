@@ -23,19 +23,18 @@ td {
 }
 
 .graph-section {
-    /*height: 50%;*/
+    height: 15em;
 }
 
 .details-section {
     background-color: #fff8dc;
-    /*height: 45%;*/
+    height: 45%;
     padding: 1em;
     overflow: auto;
 }
 
 .detail-tile {
     width: 13em;
-    /*height: 100%;*/
     float: left;
     display: table-column;
 }
@@ -58,7 +57,7 @@ td {
 }
 
 .emi-interest, .emi-principal {
-    font-size: 1.2em;
+    font-size: 1em;
     width: 48%;
     display: inline-block;
 }
@@ -71,5 +70,5 @@ td {
     font-size: 2em;
     color: red;
     text-align: center;
-    padding-top: 4em;
+    padding-top: 1em;
 }
