@@ -5,7 +5,12 @@ Scroller = function () {
             var tile = ich.detailTile(datas[i]);
             $(".details-section table tr").append(tile);
         }
-        $(".details-section").overscroll();
+        $(".details-section").dragscroll({
+            scrollBars : true,
+            autoFadeBars : true,
+            smoothness : 18,
+            mouseWheelVelocity : 2
+        });
     }
 }
 

@@ -3,12 +3,12 @@
 <html>
 <head>
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link type="text/css" rel="stylesheet" href="styles.css"/>
     <link type="text/css" rel="stylesheet" href="jquery.dragscroll.css"/>
 
     <script src="script/lib/jquery-1.7.2.js"></script>
-    <script src="script/lib/jquery.overscroll.min.js"></script>
+    <script src="script/lib/jquery.dragscroll.min.js"></script>
     <script src="script/lib/ICanHaz.min.js"></script>
     <script src="script/rupee.js"></script>
     <script src="script/loan.js"></script>
@@ -35,14 +35,21 @@
             </div>
         </td>
     </script>
+    <script type="text/javascript">
+        $(function () {
+            var windowHeight = $(document).height();
+            $(".heading-section").attr("style", "height:" + Math.round(windowHeight * 0.1) + "px");
+            $(".graph-section").attr("style", "height:" + Math.round(windowHeight * 0.5) + "px");
+        })
+    </script>
 </head>
-<body>
+<body style="margin: 0px">
 <div class="screen">
     <div class="heading-section">
         <div class="heading">Royal Homes Loan</div>
     </div>
     <div class="graph-section">
-        ssdf
+
     </div>
     <div class="details-section">
         <table>
