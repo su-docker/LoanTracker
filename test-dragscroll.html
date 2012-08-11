@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link type="text/css" rel="stylesheet" href="jquery.dragscroll.css"/>
+    <style type="text/css">
+        .container {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .section {
+            background-color: #bc8f8f;
+            margin: 5px;
+            height: 200px;
+            width: 200px;
+            float: none;
+            display: inline-block;
+        }
+    </style>
+    <script src="script/lib/jquery-1.7.2.js"></script>
+    <script src="script/lib/jquery.dragscroll.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".container").dragscroll({
+                scrollBars : true,
+                autoFadeBars : true,
+                smoothness : 15,
+                mouseWheelVelocity : 2
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+</div>
+</body>
+</html>

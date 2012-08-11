@@ -30,7 +30,7 @@ td {
     background-color: #fff8dc;
     /*height: 45%;*/
     padding: 1em;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .detail-tile {
