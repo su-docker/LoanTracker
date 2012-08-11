@@ -1,6 +1,6 @@
 Scroller = function () {
     this.populate = function (loan) {
-        var datas = loan.calculate();
+        var datas = loan.calculate(true);
         for (var i = 0; i < datas.length; i++) {
             var tile = ich.detailTile(datas[i]);
             $(".details-section table tr").append(tile);
@@ -13,15 +13,3 @@ Scroller = function () {
         });
     }
 }
-
-$(document).ready(function () {
-    var scroller = new Scroller(),
-        loan = new Loan(1617000, 240, 21000);
-    loan.addInterestRates(1, 11.25);
-//    loan.addWindfall(2, 95000);
-//    loan.addWindfall(3, 60000);
-    loan.addInterestRates(1, 11.25);
-    loan.addInterestRates(12, 11);
-
-    scroller.populate(loan);
-})

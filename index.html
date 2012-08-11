@@ -10,8 +10,10 @@
     <script src="script/lib/jquery-1.7.2.js"></script>
     <script src="script/lib/jquery.dragscroll.min.js"></script>
     <script src="script/lib/ICanHaz.min.js"></script>
+    <script src="script/lib/d3.v2.js"></script>
     <script src="script/rupee.js"></script>
     <script src="script/loan.js"></script>
+    <script src="script/graph.js"></script>
     <script src="script/scroller.js"></script>
     <script id="detailTile" type="text/html">
         <td>
@@ -40,6 +42,21 @@
             var windowHeight = $(document).height();
             $(".heading-section").attr("style", "height:" + Math.round(windowHeight * 0.1) + "px");
             $(".graph-section").attr("style", "height:" + Math.round(windowHeight * 0.5) + "px");
+
+            //Init loan
+            var loan = new Loan(1617000, 240, 56000);
+            loan.addInterestRates(1, 11.25);
+            loan.addWindfall(12, 95000);
+            loan.addWindfall(13, 125000);
+            loan.addInterestRates(12, 11);
+
+            //Init the scroller
+            var scroller = new Scroller();
+            scroller.populate(loan);
+
+            //Testing the graph
+            var graph = new Graph();
+            graph.plot(loan);
         })
     </script>
 </head>

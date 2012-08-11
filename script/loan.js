@@ -14,7 +14,7 @@ function Loan(amount, tenure, emi) {
         return timeframe;
     }
 
-    this.calculate = function () {
+    this.calculate = function (pretty) {
         var monthlyCalc = [],
             balance = this.amount,
             month = 1;
@@ -24,10 +24,10 @@ function Loan(amount, tenure, emi) {
                 balance = balance - principlePortion,
                 monthData = {"duration": toHumanTimeFrame(month),
                     "interestRate":this.interestRates[month],
-                    "EMIAmt" : new Rupee(interestPortion + principlePortion).prettyPrint(),
-                    "interestAmt": new Rupee(interestPortion).prettyPrint(),
-                    "principleAmt" : new Rupee(principlePortion).prettyPrint(),
-                    "balanceAmt" : new Rupee(balance).prettyPrint()};
+                    "EMIAmt" : pretty ? new Rupee(interestPortion + principlePortion).prettyPrint() : (interestPortion + principlePortion),
+                    "interestAmt": pretty ? new Rupee(interestPortion).prettyPrint() : interestPortion,
+                    "principleAmt" : pretty ? new Rupee(principlePortion).prettyPrint() : principlePortion,
+                    "balanceAmt" : pretty ? new Rupee(balance).prettyPrint() : balance };
             monthlyCalc.push(monthData);
             month++;
         }

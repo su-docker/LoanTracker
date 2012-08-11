@@ -23,6 +23,13 @@ td {
 .graph-section {
 }
 
+.graph-section div {
+    background-color: #cedcd4;
+    display: inline-block;
+    float: none;
+    /*border: solid 0.1em white;*/
+}
+
 .details-section {
     background-color: #fff8dc;
     /*padding: 1em;*/
@@ -30,7 +37,7 @@ td {
 }
 
 .detail-tile {
-    width: 13em;
+    width: 11em;
     float: left;
     display: table-column;
 }
@@ -49,7 +56,7 @@ td {
 .emi {
     text-align: center;
     padding-top: 1em;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .emi-interest, .emi-principal {
@@ -63,8 +70,8 @@ td {
 }
 
 .balance {
-    font-size: 2em;
+    font-size: 1.7em;
     color: red;
     text-align: center;
-    padding-top: 1em;
+    padding-top: 1.2em;
 }
