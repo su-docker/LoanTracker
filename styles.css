@@ -9,57 +9,56 @@ td {
 
 .screen {
     border: 1px solid #000000;
-    font-size: 24px;
     width: 100%;
 }
 
 .heading-section {
     background-color: #f5f5dc;
-    height: 5%;
 }
 
 .heading {
     color: #000000;
-    padding: 1%;
+    padding: 0.5em;
+    font-size: 1.5em;
 }
 
 .graph-section {
-    height: 50%;
+    /*height: 50%;*/
 }
 
 .details-section {
     background-color: #fff8dc;
-    height: 45%;
-    padding: 1%;
+    /*height: 45%;*/
+    padding: 1em;
     overflow: scroll;
 }
 
 .detail-tile {
-    width: 230px;
-    height: 100%;
+    width: 13em;
+    /*height: 100%;*/
     float: left;
     display: table-column;
 }
 
 .date {
-    font-size: 18px;
+    font-size: 1.2em;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 1em;
 }
 
 .interest {
     text-align: center;
-    padding-top: 10%;
+    padding-top: 1em;
 }
 
 .emi {
     text-align: center;
-    padding-top: 10%;
-    font-size: 32px;
+    padding-top: 1em;
+    font-size: 2em;
 }
 
 .emi-interest, .emi-principal {
-    font-size: 18px;
+    font-size: 1.2em;
     width: 48%;
     display: inline-block;
 }
@@ -69,8 +68,8 @@ td {
 }
 
 .balance {
-    font-size: 36px;
+    font-size: 2em;
     color: red;
     text-align: center;
-    padding-top: 40%;
+    padding-top: 4em;
 }
