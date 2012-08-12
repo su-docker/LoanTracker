@@ -35,7 +35,7 @@ function Loan(amount, tenure, emi) {
         }
     }
 
-    this.getActualDuration = function () {
+    this.getEffectiveTenure = function () {
         var monthlyCalc = this.calculate();
         var lastValue = monthlyCalc[monthlyCalc.length - 1]
         return lastValue.duration;

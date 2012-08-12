@@ -21,6 +21,21 @@
     <script src="script/graph.js"></script>
     <script src="script/scroller.js"></script>
     <script src="script/loan-visualizer.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var loan = new Loan(1650000, 240, 24000);
+            loan.addInterestRates(1, 11.25);
+            loan.addWindfall(2, 95000);
+            loan.addWindfall(3, 60000);
+            loan.addWindfall(12, 50000);
+
+            var loanVisualizer = new LoanVisualizer();
+            loanVisualizer.load(loan);
+
+        })
+    </script>
+
     <script id="detailTile" type="text/html">
         <td>
             <div class="detail-tile tile-{{ month }}">
@@ -43,20 +58,8 @@
             </div>
         </td>
     </script>
-    <script type="text/javascript">
-        $(function () {
-            var loan = new Loan(1650000, 240, 24000);
-            loan.addInterestRates(1, 11.25);
-            loan.addWindfall(2, 95000);
-            loan.addWindfall(3, 60000);
-            loan.addWindfall(12, 50000);
-
-            var loanVisualizer = new LoanVisualizer();
-            loanVisualizer.load(loan);
-
-        })
-    </script>
 </head>
+
 <body style="margin: 0px">
 <div data-role="page">
     <div data-role="header">
