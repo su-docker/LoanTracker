@@ -2,11 +2,6 @@
     padding: 0px;
 }
 
-td {
-    border: 1px solid green;
-    border-radius: 0.5em;
-}
-
 .summary-section {
     text-align: center;
     padding: 3px;
@@ -25,14 +20,16 @@ td {
 
 .details-section {
     background-color: #fff8dc;
-    /*padding: 1em;*/
-    overflow: auto;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .detail-tile {
     width: 11em;
-    float: left;
-    display: table-column;
+    display: inline-block;
+    border: 1px solid green;
+    border-radius: 0.5em;
+    margin: 2px;
 }
 
 .date {

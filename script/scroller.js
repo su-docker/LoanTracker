@@ -19,6 +19,16 @@ function Scroller() {
         });
 
         this.refresh();
+    }
+
+    this.refresh = function () {
+        $(".details-section div").remove();
+        var datas = this.loan.calculate(true);
+        for (var i = 0; i < datas.length; i++) {
+            var tile = ich.detailTile(transformForHumans(datas[i]));
+            $(".details-section").append(tile);
+            $(".tile-" + datas[i].month).data(datas[i]);
+        }
 
         $(".details-section").dragscroll({
             scrollBars:true,
@@ -26,16 +36,6 @@ function Scroller() {
             smoothness:18,
             mouseWheelVelocity:2
         });
-    }
-
-    this.refresh = function () {
-        $(".details-section table tr td").remove();
-        var datas = this.loan.calculate(true);
-        for (var i = 0; i < datas.length; i++) {
-            var tile = ich.detailTile(transformForHumans(datas[i]));
-            $(".details-section table tr").append(tile);
-            $(".tile-" + datas[i].month).data(datas[i]);
-        }
     }
 
     function transformForHumans(monthlyData) {

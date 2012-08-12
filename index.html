@@ -37,26 +37,24 @@
     </script>
 
     <script id="detailTile" type="text/html">
-        <td>
-            <div class="detail-tile tile-{{ month }}">
-                <div class="date">
-                    {{ duration }}
-                </div>
-                <div class="interest">
-                    {{ interestRate }}%
-                </div>
-                <div class="emi">
-                    {{ EMIAmt }}
-                </div>
-                <div class="emi-split">
-                    <div class="emi-interest">{{ interestAmt }}</div>
-                    <div class="emi-principal">{{ principleAmt }}</div>
-                </div>
-                <div class="balance">
-                    {{ balanceAmt }}
-                </div>
+        <div class="detail-tile tile-{{ month }}">
+            <div class="date">
+                {{ duration }}
             </div>
-        </td>
+            <div class="interest">
+                {{ interestRate }}%
+            </div>
+            <div class="emi">
+                {{ EMIAmt }}
+            </div>
+            <div class="emi-split">
+                <div class="emi-interest">{{ interestAmt }}</div>
+                <div class="emi-principal">{{ principleAmt }}</div>
+            </div>
+            <div class="balance">
+                {{ balanceAmt }}
+            </div>
+        </div>
     </script>
 </head>
 
@@ -73,10 +71,6 @@
 
         </div>
         <div class="details-section">
-            <table>
-                <tr>
-                </tr>
-            </table>
         </div>
     </div>
 </div>
