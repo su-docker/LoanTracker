@@ -10,10 +10,11 @@ function Scroller() {
             $("#edit-interest-text").val(monthlyData.interestRate);
             $("#edit-interest").simpledialog2();
         });
-        $("#edit-interest-close").live("click", function () {
+        $("#edit-interest-close").live("touch", function () {
             var rate = $("#edit-interest-text").val(),
                 loanVisualizer = $(".loan-visualizer").data(),
                 month = $("#edit-interest-month").val();
+            console.log(month+":"+rate);
             loanVisualizer.loan.addInterestRates(month, rate);
             loanVisualizer.refresh();
         });
