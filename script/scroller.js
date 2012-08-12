@@ -19,6 +19,13 @@ function Scroller() {
         });
 
         this.refresh();
+
+        $(".details-section").dragscroll({
+            scrollBars : true,
+            autoFadeBars : true,
+            smoothness : 18,
+            mouseWheelVelocity : 2
+        });
     }
 
     this.refresh = function () {
