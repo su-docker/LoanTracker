@@ -5,16 +5,7 @@ function Loan(amount, tenure, emi) {
     this.windfall = {};
     this.interestRates = {};
 
-    function toHumanTimeFrame(value) {
-        var timeframe = "",
-            year = Math.floor(value / 12),
-            month = value % 12;
-        if (year > 0) timeframe += (year + " years ");
-        if (month > 0) timeframe += (month + " months ");
-        return timeframe;
-    }
-
-    this.calculate = function (pretty) {
+    this.calculate = function () {
         var monthlyCalc = [],
             balance = this.amount,
             month = 1;
@@ -22,12 +13,12 @@ function Loan(amount, tenure, emi) {
             var interestPortion = (balance * this.interestRates[month] / 100) / 12,
                 principlePortion = (this.emi + (this.windfall[month] || 0)) - interestPortion,
                 balance = balance - principlePortion,
-                monthData = {"duration": toHumanTimeFrame(month),
+                monthData = {"duration":month,
                     "interestRate":this.interestRates[month],
-                    "EMIAmt" : pretty ? new Rupee(interestPortion + principlePortion).prettyPrint() : (interestPortion + principlePortion),
-                    "interestAmt": pretty ? new Rupee(interestPortion).prettyPrint() : interestPortion,
-                    "principleAmt" : pretty ? new Rupee(principlePortion).prettyPrint() : principlePortion,
-                    "balanceAmt" : pretty ? new Rupee(balance).prettyPrint() : balance };
+                    "EMIAmt":(interestPortion + principlePortion),
+                    "interestAmt":interestPortion,
+                    "principleAmt":principlePortion,
+                    "balanceAmt":balance };
             monthlyCalc.push(monthData);
             month++;
         }
@@ -43,5 +34,10 @@ function Loan(amount, tenure, emi) {
             this.interestRates[i] = percent;
         }
     }
+
+    this.getActualDuration = function () {
+        var monthlyCalc = this.calculate();
+        var lastValue = monthlyCalc[monthlyCalc.length - 1]
+        return lastValue.duration;
+    }
 }
-;

@@ -1,23 +1,15 @@
+.ui-content {
+    padding: 0px;
+}
 
 td {
     border: 1px solid green;
     border-radius: 0.5em;
 }
 
-.screen {
-    border: 1px solid #000000;
-    /*width: 100%;*/
-    margin: 0px;
-}
-
-.heading-section {
-    background-color: #f5f5dc;
-}
-
-.heading {
-    color: #000000;
-    padding: 0.5em;
-    font-size: 1em;
+.summary-section {
+    text-align: center;
+    padding: 3px;
 }
 
 .graph-section {
@@ -28,6 +20,7 @@ td {
     display: inline-block;
     float: none;
     /*border: solid 0.1em white;*/
+    box-shadow: inset #77807c -1px 1px 0px 1px  ;
 }
 
 .details-section {
@@ -51,6 +44,7 @@ td {
 .interest {
     text-align: center;
     padding-top: 1em;
+    cursor: pointer;
 }
 
 .emi {
