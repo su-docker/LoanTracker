@@ -10,12 +10,16 @@
 .graph-section {
 }
 
-.graph-section div {
+.bar {
     background-color: #cedcd4;
     display: inline-block;
     float: none;
     /*border: solid 0.1em white;*/
     box-shadow: inset #77807c -1px 1px 0px 1px  ;
+}
+
+.bar:hover, .detail-tile:hover {
+    background-color: #fffff0;
 }
 
 .details-section {
@@ -30,6 +34,10 @@
     border: 1px solid green;
     border-radius: 0.5em;
     margin: 2px;
+}
+
+.detail-tile:focus {
+    background-color: #6495ed;
 }
 
 .date {

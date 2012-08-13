@@ -4,13 +4,13 @@ function Scroller() {
         this.loan = loan;
 
         //Add handlers
-        $(".interest").live("click", function () {
+        $(".interest").live("tap", function () {
             var monthlyData = $(this).parent(".detail-tile").data();
             $("#edit-interest-month").val(monthlyData.month);
             $("#edit-interest-text").val(monthlyData.interestRate);
             $("#edit-interest").simpledialog2();
         });
-        $("#edit-interest-close").live("click", function () {
+        $("#edit-interest-close").live("tap", function () {
             var rate = $("#edit-interest-text").val(),
                 loanVisualizer = $(".loan-visualizer").data(),
                 month = $("#edit-interest-month").val();

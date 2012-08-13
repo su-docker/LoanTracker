@@ -3,6 +3,13 @@ function Graph() {
 
     this.load = function (loan) {
         this.loan = loan;
+
+        //Add handlers
+        $(".bar").live("click", function () {
+            var month = $(this).attr("data-month");
+            $(".tile-" + month).attr("tabindex", -1).focus();
+        });
+
         this.refresh();
     }
 
@@ -24,6 +31,10 @@ function Graph() {
             .enter().append("div")
             .style("height", heightScale)
             .style("width", widthPercent + "%")
+            .attr("class", "bar")
+            .attr("data-month", function (d, i) {
+                return loanData[i].duration
+            })
     }
 
 }
