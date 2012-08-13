@@ -7,23 +7,30 @@
     padding: 3px;
 }
 
-.graph-section {
+.graph {
+    height: 100%
+}
+
+.duration {
+    position: absolute;
+    right:0px;
+    padding: 10px;
 }
 
 .bar {
-    background-color: #cedcd4;
+    background-color: #b3b3b3;
     display: inline-block;
     float: none;
     /*border: solid 0.1em white;*/
     box-shadow: inset #77807c -1px 1px 0px 1px  ;
 }
 
-.bar:hover, .detail-tile:hover {
-    background-color: #fffff0;
-}
+/*.bar:hover, .detail-tile:hover {*/
+    /*background-color: #fffff0;*/
+/*}*/
 
 .details-section {
-    background-color: #fff8dc;
+    /*background-color: #ced2cf;*/
     overflow: hidden;
     white-space: nowrap;
 }
@@ -31,13 +38,13 @@
 .detail-tile {
     width: 11em;
     display: inline-block;
-    border: 1px solid green;
+    border: 1px solid #525b57;
     border-radius: 0.5em;
     margin: 2px;
 }
 
 .detail-tile:focus {
-    background-color: #6495ed;
+    background-color: #e9edea;
 }
 
 .date {

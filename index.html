@@ -24,7 +24,7 @@
 
     <script type="text/javascript">
         $(function () {
-            var loan = new Loan(1650000, 240, 24000);
+            var loan = new Loan(1650000, 240, 54000);
             loan.addInterestRates(1, 11.25);
             loan.addWindfall(2, 95000);
             loan.addWindfall(3, 60000);
@@ -60,15 +60,14 @@
 
 <body style="margin: 0px">
 <div data-role="page">
-    <div data-role="header">
+    <div data-role="header" class="header-section">
         <h1>Royal Homes Loan</h1>
     </div>
     <div data-role="content" class="loan-visualizer">
-        <div class="summary-section">
-
-        </div>
         <div class="graph-section">
-
+            <div class="duration">
+            </div>
+            <div class="graph"></div>
         </div>
         <div class="details-section">
         </div>

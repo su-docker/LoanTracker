@@ -14,8 +14,6 @@ function Graph() {
     }
 
     this.refresh = function () {
-        $(".graph-section div").remove();
-
         var data = [];
         var loanData = this.loan.calculate();
         for (var i = 0; i < loanData.length; i++) {
@@ -25,8 +23,10 @@ function Graph() {
             maxHeight = this.view.height(),
             heightScale = d3.scale.linear()
                 .domain([0, d3.max(data)])
-                .range(["0px", maxHeight + "px"]);
-        d3.select(".graph-section").selectAll("div")
+                .range(["0%", "100%"]);
+
+        this.view.find(".graph div").remove();
+        d3.select(".graph").selectAll("div")
             .data(data)
             .enter().append("div")
             .style("height", heightScale)
@@ -34,7 +34,8 @@ function Graph() {
             .attr("class", "bar")
             .attr("data-month", function (d, i) {
                 return loanData[i].duration
-            })
+            });
+        this.view.find(".duration").html(this.loan.getEffectiveTenure().toHumanDuration());
     }
 
 }

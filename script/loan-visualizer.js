@@ -1,24 +1,29 @@
 function LoanVisualizer() {
 
     function init(self) {
-        var windowHeight = $(document).height();
-        $(".graph-section").attr("style", "height:" + Math.round(windowHeight * 0.58) + "px");
-
+        adjustDifferentSectionHeights();
         self.scroller = new Scroller();
         self.graph = new Graph();
     }
+
     init(this);
 
-    this.load = function(loan) {
+    function adjustDifferentSectionHeights() {
+        var windowHeight = $(window).height(),
+            headerHeight = $(".header-section").height(),
+            availableHeight = windowHeight - headerHeight;
+        $(".details-section").height(availableHeight / 2)
+        $(".graph-section").height(availableHeight / 2);
+    }
+
+    this.load = function (loan) {
         this.loan = loan;
         $(".loan-visualizer").data(this);
-        $(".summary-section").html(loan.getEffectiveTenure().toHumanDuration());
         this.scroller.load(loan);
         this.graph.load(loan);
     }
 
-    this.refresh = function() {
-        $(".summary-section").html(this.loan.getEffectiveTenure().toHumanDuration());
+    this.refresh = function () {
         this.scroller.refresh();
         this.graph.refresh();
     }
