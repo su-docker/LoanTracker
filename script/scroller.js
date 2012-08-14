@@ -18,6 +18,8 @@ function Scroller() {
             loanVisualizer.refresh();
         });
 
+        this.stickyScroll = new iScroll('stickies-scroll');
+
         this.refresh();
     }
 
@@ -31,13 +33,8 @@ function Scroller() {
             $(".tile-" + datas[i].month).data(datas[i]);
         }
         $(".detail-tile").css("height", height);
-
-        $(".details-section").dragscroll({
-            scrollBars:true,
-            autoFadeBars:true,
-            smoothness:18,
-            mouseWheelVelocity:2
-        });
+        $(".details-section").css("width", $(".detail-tile").outerWidth(true) * datas.length); //iScroll needs the width of child div
+        setTimeout(function () { this.stickyScroll.refresh(); }, 0);
     }
 
     function transformForHumans(monthlyData) {

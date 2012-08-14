@@ -4,6 +4,7 @@ function LoanVisualizer() {
         adjustDifferentSectionHeights();
         self.scroller = new Scroller();
         self.graph = new Graph();
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     }
 
     init(this);

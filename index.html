@@ -6,13 +6,12 @@
     <link type="text/css" rel="stylesheet" href="style/jquery.mobile-1.1.1.min.css"/>
     <link type="text/css" rel="stylesheet" href="style/jquery.mobile.theme-1.1.1.min.css"/>
     <link type="text/css" rel="stylesheet" href="style/jquery.mobile.simpledialog.min.css"/>
-    <link type="text/css" rel="stylesheet" href="style/jquery.dragscroll.css"/>
     <link type="text/css" rel="stylesheet" href="style/mine.css"/>
 
     <script src="script/lib/jquery-1.7.2.js"></script>
     <script src="script/lib/jquery.mobile-1.1.1.min.js"></script>
     <script src="script/lib/jquery.mobile.simpledialog2.min.js"></script>
-    <script src="script/lib/jquery.dragscroll.min.js"></script>
+    <script src="script/lib/iscroll-lite.js"></script>
     <script src="script/lib/ICanHaz.min.js"></script>
     <script src="script/lib/d3.v2.js"></script>
 
@@ -24,7 +23,7 @@
 
     <script type="text/javascript">
         $(function () {
-            var loan = new Loan(2000000, 240, 22000);
+            var loan = new Loan(2000000, 240, 54000);
             loan.addInterestRates(1, 11.25);
 //            loan.addWindfall(2, 95000);
 //            loan.addWindfall(3, 60000);
@@ -69,7 +68,9 @@
             </div>
             <div class="graph"></div>
         </div>
-        <div class="details-section">
+        <div id="stickies-scroll">
+            <div class="details-section">
+            </div>
         </div>
     </div>
 </div>
