@@ -18,32 +18,32 @@ function Graph() {
     }
 
     this.refresh = function () {
-        var data = [];
-        var loanData = this.loan.calculate();
+        var balanceData = [],
+            loanData = this.loan.calculate();
         for (var i = 0; i < loanData.length; i++) {
-            data.push(loanData[i].balanceAmt);
+            balanceData.push(loanData[i].balanceAmt);
         }
-        var widthPercent = 100 / (data.length),
-            maxHeight = this.view.height(),
-            heightScale = d3.scale.linear()
-                .domain([0, d3.max(data)])
-                .range(["0%", "100%"]);
 
-        this.view.find(".graph div").remove();
-        d3.select(".graph").selectAll("div")
-            .data(data)
-            .enter().append("div")
-            .style("height", heightScale)
-            .attr("class", "bar")
-            .attr("data-month", function (d, i) {
-                return loanData[i].duration
-            });
+        $(".graph div").remove();
+        for (var i = 0; i < balanceData.length; i++) {
+            var bar = $(document.createElement("div"));
+            bar.attr("class", "bar");
+            bar.css("height",scaleHeight(balanceData, i));
+            bar.attr("data-month", loanData[i].duration);
+            $(".graph").append(bar);
+        }
 
         var barsWidth = $(".bar").width() * loanData.length;
         $(".graph-section").css("width", barsWidth);
-        setTimeout( refreshScroller(this), 0);
+        setTimeout(refreshScroller(this), 0);
 
         $(".duration").html(this.loan.getEffectiveTenure().toHumanDuration());
+    }
+
+    function scaleHeight(balanceData, index) {
+        var maxValue = Math.max.apply(Math, balanceData),
+            currentValue = balanceData[index];
+        return (currentValue/maxValue * 100) + "%";
     }
 
     function refreshScroller(self) {
