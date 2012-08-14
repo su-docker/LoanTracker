@@ -12,6 +12,8 @@ function Graph() {
             $(".tile-" + month).attr("tabindex", -1).focus();
         });
 
+        this.graphScroll = new iScroll('graph-scroll');
+
         this.refresh();
     }
 
@@ -32,12 +34,20 @@ function Graph() {
             .data(data)
             .enter().append("div")
             .style("height", heightScale)
-            .style("width", widthPercent + "%")
             .attr("class", "bar")
             .attr("data-month", function (d, i) {
                 return loanData[i].duration
             });
-        this.view.find(".duration").html(this.loan.getEffectiveTenure().toHumanDuration());
+
+        var barsWidth = $(".bar").width() * loanData.length;
+        $(".graph-section").css("width", barsWidth);
+        setTimeout( refreshScroller(this), 0);
+
+        $(".duration").html(this.loan.getEffectiveTenure().toHumanDuration());
+    }
+
+    function refreshScroller(self) {
+        self.graphScroll.refresh();
     }
 
 }

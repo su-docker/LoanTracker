@@ -34,7 +34,7 @@ function Scroller() {
         }
         $(".detail-tile").css("height", height);
         $(".details-section").css("width", $(".detail-tile").outerWidth(true) * datas.length); //iScroll needs the width of child div
-        setTimeout(function () { this.stickyScroll.refresh(); }, 0);
+        setTimeout(refreshScroll(this), 0);
     }
 
     function transformForHumans(monthlyData) {
@@ -45,6 +45,10 @@ function Scroller() {
         monthlyData.principleAmt = monthlyData.principleAmt.toRupees();
         monthlyData.balanceAmt = monthlyData.balanceAmt.toRupees();
         return monthlyData;
+    }
+
+    function refreshScroll(self) {
+        self.stickyScroll.refresh();
     }
 
 }

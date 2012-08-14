@@ -23,11 +23,11 @@
 
     <script type="text/javascript">
         $(function () {
-            var loan = new Loan(2000000, 240, 54000);
+            var loan = new Loan(2000000, 240, 24000);
             loan.addInterestRates(1, 11.25);
 //            loan.addWindfall(2, 95000);
 //            loan.addWindfall(3, 60000);
-//            loan.addWindfall(12, 150000);
+            loan.addWindfall(12, 150000);
 
             var loanVisualizer = new LoanVisualizer();
             loanVisualizer.load(loan);
@@ -63,10 +63,11 @@
         <h1>Royal Homes Loan</h1>
     </div>
     <div data-role="content" class="loan-visualizer">
-        <div class="graph-section">
-            <div class="duration">
+        <div class="duration"></div>
+        <div id="graph-scroll">
+            <div class="graph-section">
+                <div class="graph"></div>
             </div>
-            <div class="graph"></div>
         </div>
         <div id="stickies-scroll">
             <div class="details-section">

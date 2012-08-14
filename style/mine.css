@@ -12,8 +12,13 @@
     background-size: cover;
 }
 
+.graph-section {
+    float: none;
+}
+
 .graph {
-    height: 100%
+    height: 100%;
+    overflow: hidden;
 }
 
 .duration {
@@ -27,8 +32,9 @@
     display: inline-block;
     float: none;
     /*box-shadow: inset #77807c -1px 1px 0px 1px  ;*/
-    background-image: url("/image/bar.png");
+    background-image: url("/image/bar-line.png");
     background-size: cover;
+    width: 10px;
 }
 
 .highlight {
