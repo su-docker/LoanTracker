@@ -1,10 +1,15 @@
+@font-face {
+    font-family: daniel;
+    src: url("/daniel.ttf");
+}
+
 .ui-content {
     padding: 0px;
 }
 
-.summary-section {
-    text-align: center;
-    padding: 3px;
+.page {
+    background-image: url("/image/crumpled-paper.jpg");
+    background-size: cover;
 }
 
 .graph {
@@ -18,37 +23,40 @@
 }
 
 .bar {
-    background-color: #b3b3b3;
+    /*background-color: #b3b3b3;*/
     display: inline-block;
     float: none;
-    /*border: solid 0.1em white;*/
-    box-shadow: inset #77807c -1px 1px 0px 1px  ;
+    /*box-shadow: inset #77807c -1px 1px 0px 1px  ;*/
+    background-image: url("/image/bar.png");
+    background-size: cover;
 }
 
-/*.bar:hover, .detail-tile:hover {*/
-    /*background-color: #fffff0;*/
-/*}*/
+.highlight {
+    background-image: url("/image/bar-highlight.png");
+}
 
 .details-section {
-    /*background-color: #ced2cf;*/
     overflow: hidden;
     white-space: nowrap;
 }
 
 .detail-tile {
-    width: 11em;
+    width: 13em;
     display: inline-block;
-    border: 1px solid #525b57;
-    border-radius: 0.5em;
+    /*border: 1px solid #525b57;*/
+    /*border-radius: 0.5em;*/
     margin: 2px;
+    background-image: url("/image/sticky-pale.png");
+    background-size: cover;
+    /*background-position: center;*/
 }
 
 .detail-tile:focus {
-    background-color: #e9edea;
+    background-image: url("/image/sticky.png");
 }
 
 .date {
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
     text-align: center;
     padding-top: 1em;
 }
@@ -61,12 +69,11 @@
 
 .emi {
     text-align: center;
-    padding-top: 1em;
-    font-size: 1.5em;
+    padding-top: 0.8em;
+    font-size: 1.2em;
 }
 
 .emi-interest, .emi-principal {
-    font-size: 1em;
     width: 48%;
     display: inline-block;
 }
@@ -76,8 +83,8 @@
 }
 
 .balance {
-    font-size: 1.7em;
+    font-size: 1.5em;
     color: red;
     text-align: center;
-    padding-top: 1.2em;
+    padding-top: 1em;
 }

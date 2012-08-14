@@ -7,6 +7,8 @@ function Graph() {
         //Add handlers
         $(".bar").live("click", function () {
             var month = $(this).attr("data-month");
+            $(".graph div").removeClass("highlight");
+            $(this).addClass("highlight");
             $(".tile-" + month).attr("tabindex", -1).focus();
         });
 

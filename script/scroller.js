@@ -23,12 +23,14 @@ function Scroller() {
 
     this.refresh = function () {
         $(".details-section div").remove();
-        var datas = this.loan.calculate(true);
+        var height = $(".details-section").height();
+            datas = this.loan.calculate(true);
         for (var i = 0; i < datas.length; i++) {
             var tile = ich.detailTile(transformForHumans(datas[i]));
             $(".details-section").append(tile);
             $(".tile-" + datas[i].month).data(datas[i]);
         }
+        $(".detail-tile").css("height", height);
 
         $(".details-section").dragscroll({
             scrollBars:true,
