@@ -4,14 +4,6 @@ function Graph() {
     this.load = function (loan) {
         this.loan = loan;
 
-        //Add handlers
-        $(".bar").live("click", function () {
-            var month = $(this).attr("data-month");
-            $(".graph div").removeClass("highlight");
-            $(this).addClass("highlight");
-            $(".tile-" + month).attr("tabindex", -1).focus();
-        });
-
         this.graphScroll = new iScroll('graph-scroll');
 
         this.refresh();
@@ -28,22 +20,38 @@ function Graph() {
         for (var i = 0; i < balanceData.length; i++) {
             var bar = $(document.createElement("div"));
             bar.attr("class", "bar");
-            bar.css("height",scaleHeight(balanceData, i));
+            bar.css("height", scaleHeight(balanceData, i));
             bar.attr("data-month", loanData[i].duration);
             $(".graph").append(bar);
         }
 
         var barsWidth = $(".bar").width() * loanData.length;
         $(".graph-section").css("width", barsWidth);
-        setTimeout(refreshScroller(this), 0);
+
+        var that = this;
+        setTimeout(function () {
+            refreshScroller(that)
+        }, 1000);
 
         $(".duration").html(this.loan.getEffectiveTenure().toHumanDuration());
+    }
+
+    this.scrollTo = function (month) {
+        var selector = ".bar:nth-child(" + month + ")";
+        this.graphScroll.scrollToElement(selector, 100);
+        this.highlight(month);
+    }
+
+    this.highlight = function(month) {
+        var selector = ".bar:nth-child(" + month + ")";
+        $(".bar").removeClass("bar-highlight");
+        $(selector).addClass("bar-highlight");
     }
 
     function scaleHeight(balanceData, index) {
         var maxValue = Math.max.apply(Math, balanceData),
             currentValue = balanceData[index];
-        return (currentValue/maxValue * 100) + "%";
+        return (currentValue / maxValue * 100) + "%";
     }
 
     function refreshScroller(self) {

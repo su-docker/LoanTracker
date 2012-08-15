@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link type="text/css" rel="stylesheet" href="style/jquery.mobile-1.1.1.min.css"/>
     <link type="text/css" rel="stylesheet" href="style/jquery.mobile.theme-1.1.1.min.css"/>
-    <link type="text/css" rel="stylesheet" href="style/jquery.mobile.simpledialog.min.css"/>
     <link type="text/css" rel="stylesheet" href="style/mine.css"/>
 
-    <script src="script/lib/jquery-1.7.2.js"></script>
+    <script src="script/lib/jquery-1.7.2.min.js"></script>
     <script src="script/lib/jquery.mobile-1.1.1.min.js"></script>
-    <script src="script/lib/jquery.mobile.simpledialog2.min.js"></script>
     <script src="script/lib/iscroll-lite.js"></script>
     <script src="script/lib/ICanHaz.min.js"></script>
-    <script src="script/lib/d3.v2.js"></script>
 
     <script src="script/extensions.js"></script>
     <script src="script/loan.js"></script>
@@ -41,10 +38,10 @@
                 {{ duration }}
             </div>
             <div class="interest">
-                {{ interestRate }}%
+                <a href="#edit-interest" data-rel="dialog"> {{ interestRate }}% </a>
             </div>
             <div class="emi">
-                {{ EMIAmt }}
+                <a href="#edit-emi" data-rel="dialog"> {{ EMIAmt }} </a>
             </div>
             <div class="emi-split">
                 <div class="emi-interest">{{ interestAmt }}</div>
@@ -76,12 +73,32 @@
     </div>
 </div>
 
+<div data-role="page" id="edit-emi">
+    <div data-role="header">
+        <h1>Edit EMI</h1>
+    </div>
+    <div>
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="edit-emi-amount">Amount</label>
+            <input type="text" name="emi" id="edit-emi-amount" value="" placeholder="Amount"/>
+            <input type="checkbox" name="repeat" id="edit-emi-repeat"/>
+            <label for="edit-emi-repeat">Repeat</label>
+            <input type="hidden" id="edit-emi-month"/>
+        </div>
+        <a id="edit-emi-close" data-rel="back" data-role='button' href='#'> Update </a>
+    </div>
+</div>
 
-<div id="edit-interest" style="display: none;"
-     data-options='{"mode":"blank","blankContent":true,"blankContentAdopt":true,"headerText":"Edit Interest Rate"}'>
-    <input type="number" id="edit-interest-text" class="ui-input-text"/>
-    <input type="hidden" id="edit-interest-month"/>
-    <a id="edit-interest-close" rel='close' data-role='button' href='#'> Ok </a>
+<div data-role="page" id="edit-interest">
+    <div data-role="header">
+        <h1>Edit Interest</h1>
+    </div>
+    <div data-role="content">
+        <label for="edit-interest-text">Interest</label>
+        <input type="number" id="edit-interest-text" placeholder="%"/>
+        <input type="hidden" id="edit-interest-month"/>
+        <a id="edit-interest-close" data-rel="back" data-role='button' href='#'> Update </a>
+    </div>
 </div>
 
 </body>

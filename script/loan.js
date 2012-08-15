@@ -11,7 +11,7 @@ function Loan(amount, tenure, emi) {
             month = 1;
         while (month < this.tenure && balance > 0) {
             var interestPortion = (balance * this.interestRates[month] / 100) / 12,
-                principlePortion = (this.emi + (this.windfall[month] || 0)) - interestPortion,
+                principlePortion = (this.windfall[month] || this.emi) - interestPortion,
                 balance = balance - principlePortion,
                 monthData = {"duration":month,
                     "interestRate":this.interestRates[month],
