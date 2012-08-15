@@ -18,20 +18,6 @@
     <script src="script/scroller.js"></script>
     <script src="script/loan-visualizer.js"></script>
 
-    <script type="text/javascript">
-        $(function () {
-            var loan = new Loan(2000000, 240, 24000);
-            loan.addInterestRates(1, 11.25);
-//            loan.addWindfall(2, 95000);
-//            loan.addWindfall(3, 60000);
-            loan.addWindfall(12, 150000);
-
-            var loanVisualizer = new LoanVisualizer();
-            loanVisualizer.load(loan);
-
-        })
-    </script>
-
     <script id="detailTile" type="text/html">
         <div class="detail-tile tile-{{ month }}">
             <div class="date">
@@ -55,8 +41,33 @@
 </head>
 
 <body style="margin: 0px">
-<div data-role="page" class="page">
+<div data-role="page" id="list-loans">
+    <div data-role="header">
+        <h1>Debt Free</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+            <li><a href="#loan-details">Royal Homes</a></li>
+            <li><a href="#loan-details">Bommarillu</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div data-role="page" id="loan-details">
+    <script type="text/javascript">
+        $("#loan-details").live('pageinit', function () {
+            //Page header height is not available without a delay
+            setTimeout(function () {
+                var loan = new Loan(2000000, 240, 18840);
+                loan.addInterestRates(1, 9.25);
+                var loanVisualizer = new LoanVisualizer();
+                loanVisualizer.load(loan);
+            }, 500);
+        });
+    </script>
     <div data-role="header" class="header-section">
+        <a href="#list-loans">&lt;</a>
         <h1>Royal Homes Loan</h1>
     </div>
     <div data-role="content" class="loan-visualizer">
@@ -100,6 +111,5 @@
         <a id="edit-interest-close" data-rel="back" data-role='button' href='#'> Update </a>
     </div>
 </div>
-
 </body>
 </html>

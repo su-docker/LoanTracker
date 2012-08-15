@@ -3,7 +3,7 @@
     src: url("/daniel.ttf");
 }
 
-.ui-content {
+#loan-details .ui-content {
     padding: 0px;
 }
 
@@ -25,6 +25,7 @@
     position: absolute;
     right:0px;
     padding: 10px;
+    color: blue;
 }
 
 .bar {

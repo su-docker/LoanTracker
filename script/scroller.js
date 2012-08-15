@@ -72,7 +72,7 @@ function Scroller() {
         $(".emi").live("tap", function() {
             var monthlyData = $(this).parent(".detail-tile").data();
             $("#edit-emi-month").val(monthlyData.month);
-            $("#edit-emi-amount").val(monthlyData.EMIAmt);
+            $("#edit-emi-amount").val(monthlyData.EMIAmt.replace(",",""));
         });
 
         $("#edit-emi-close").live("tap", function() {
