@@ -10,6 +10,9 @@ function Loan(amount, tenure, emi) {
             balance = this.amount,
             month = 1;
         while (month < this.tenure && balance > 0) {
+            var interestRate = 0;
+            interestRate = this.interestRates[month] || interestRate;
+
             var interestPortion = (balance * this.interestRates[month] / 100) / 12,
                 principlePortion = (this.windfall[month] || this.emi) - interestPortion,
                 balance = balance - principlePortion,
@@ -30,9 +33,7 @@ function Loan(amount, tenure, emi) {
     }
 
     this.addInterestRates = function (month, percent) {
-        for (var i = month; i < this.tenure; i++) {
-            this.interestRates[i] = percent;
-        }
+        this.interestRates[i] = percent;
     }
 
     this.getEffectiveTenure = function () {
