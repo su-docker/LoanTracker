@@ -1,9 +1,10 @@
-function Loan(amount, tenure, emi) {
-    this.amount = amount;
-    this.tenure = tenure;
-    this.emi = emi;
-    this.windfall = {};
-    this.interestRates = {};
+function Loan(details) {
+    this.name = details["name"] || "default";
+    this.amount = details["amount"];
+    this.tenure = details["tenure"];
+    this.emi = details["emi"];
+    this.windfall = details["windfall"] || {};
+    this.interestRates = details["interestRates"] || {};
 
     this.calculate = function () {
         var monthlyCalc = [],
@@ -13,7 +14,7 @@ function Loan(amount, tenure, emi) {
             var interestRate = 0;
             interestRate = this.interestRates[month] || interestRate;
 
-            var interestPortion = (balance * this.interestRates[month] / 100) / 12,
+            var interestPortion = (balance * interestRate / 100) / 12,
                 principlePortion = (this.windfall[month] || this.emi) - interestPortion,
                 balance = balance - principlePortion,
                 monthData = {"duration":month,
