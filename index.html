@@ -44,6 +44,7 @@
 <div data-role="page" id="list-loans">
     <div data-role="header">
         <h1>Debt Free</h1>
+        <a href="#add-loan" data-rel="dialog">+</a>
     </div>
     <div data-role="content">
         <ul data-role="listview">
@@ -53,13 +54,43 @@
     </div>
 </div>
 
+<div data-role="page" id="add-loan">
+    <div data-role="header">
+        <h1>Add Loan</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="add-loan-name">Name</label>
+            <input type="text" id="add-loan-name"/>
+        </div>
+        <div data-role="fieldcontain">
+            <label for="add-loan-amount">Loan Amount</label>
+            <input type="number" id="add-loan-amount" data-mini="true"/>
+        </div>
+        <div data-role="fieldcontain">
+            <label for="add-loan-months">Tenure</label>
+            <input type="number" id="add-loan-months" placeholder="months" data-mini="true"/>
+        </div>
+        <div data-role="fieldcontain">
+            <label for="add-loan-interest">Interest %</label>
+            <input type="number" id="add-loan-interest" data-mini="true"/>
+        </div>
+        <div data-role="fieldcontain">
+            <label for="add-loan-emi">EMI</label>
+            <input type="number" id="add-loan-emi" data-mini="true"/>
+        </div>
+    </div>
+    <a id="add-loan-create" data-rel="back" data-role='button' href='#'> Create </a>
+</div>
+</div>
+
 
 <div data-role="page" id="loan-details">
     <script type="text/javascript">
         $("#loan-details").live('pageinit', function () {
             //Page header height is not available without a delay
             setTimeout(function () {
-                var loan = new Loan(2000000, 240, 18840);
+                var loan = new Loan(1650000, 240, 56000);
                 loan.addInterestRates(1, 9.25);
                 var loanVisualizer = new LoanVisualizer();
                 loanVisualizer.load(loan);
@@ -69,6 +100,7 @@
     <div data-role="header" class="header-section">
         <a href="#list-loans">&lt;</a>
         <h1>Royal Homes Loan</h1>
+        <a href="">-</a>
     </div>
     <div data-role="content" class="loan-visualizer">
         <div class="duration"></div>
@@ -88,7 +120,7 @@
     <div data-role="header">
         <h1>Edit EMI</h1>
     </div>
-    <div>
+    <div data-role="content">
         <div data-role="fieldcontain" class="ui-hide-label">
             <label for="edit-emi-amount">Amount</label>
             <input type="text" name="emi" id="edit-emi-amount" value="" placeholder="Amount"/>
@@ -105,9 +137,11 @@
         <h1>Edit Interest</h1>
     </div>
     <div data-role="content">
-        <label for="edit-interest-text">Interest</label>
-        <input type="number" id="edit-interest-text" placeholder="%"/>
-        <input type="hidden" id="edit-interest-month"/>
+        <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="edit-interest-text">Interest</label>
+            <input type="number" id="edit-interest-text" placeholder="%"/>
+            <input type="hidden" id="edit-interest-month"/>
+        </div>
         <a id="edit-interest-close" data-rel="back" data-role='button' href='#'> Update </a>
     </div>
 </div>
