@@ -18,6 +18,17 @@
     <script src="script/scroller.js"></script>
     <script src="script/loan-visualizer.js"></script>
     <script src="script/loan-store.js"></script>
+    <script src="script/loan-list.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            window.loanVisualizer = new LoanVisualizer();
+        })
+    </script>
+
+    <script id="listItem" type="text/html">
+        <li><a href="#loan-details">{{ name }}</a></li>
+    </script>
 
     <script id="detailTile" type="text/html">
         <div class="detail-tile tile-{{ month }}">
@@ -42,15 +53,20 @@
 </head>
 
 <body style="margin: 0px">
-<div data-role="page" id="list-loans">
+<div data-role="page" id="list-loans-page">
+    <script type="text/javascript">
+        $("#list-loans-page").on("pageinit", function () {
+            window.loanList = new LoanList();
+            window.loanList.refresh();
+        });
+    </script>
+
     <div data-role="header">
         <h1>Debt Free</h1>
         <a href="#add-loan" data-rel="dialog">+</a>
     </div>
     <div data-role="content">
-        <ul data-role="listview">
-            <li><a href="#loan-details">Royal Homes</a></li>
-            <li><a href="#loan-details">Bommarillu</a></li>
+        <ul data-role="listview" id="list-loans">
         </ul>
     </div>
 </div>
@@ -87,19 +103,8 @@
 
 
 <div data-role="page" id="loan-details">
-    <script type="text/javascript">
-        $("#loan-details").live('pageinit', function () {
-            //Page header height is not available without a delay
-            setTimeout(function () {
-                var loan = new Loan(1650000, 240, 56000);
-                loan.addInterestRates(1, 9.25);
-                var loanVisualizer = new LoanVisualizer();
-                loanVisualizer.load(loan);
-            }, 500);
-        });
-    </script>
     <div data-role="header" class="header-section">
-        <a href="#list-loans">&lt;</a>
+        <a href="#list-loans-page">&lt;</a>
         <h1>Royal Homes Loan</h1>
         <a href="">-</a>
     </div>

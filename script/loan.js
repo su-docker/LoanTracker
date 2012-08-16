@@ -9,16 +9,15 @@ function Loan(details) {
     this.calculate = function () {
         var monthlyCalc = [],
             balance = this.amount,
-            month = 1;
+            month = 1,
+            interestRate = 0;
         while (month < this.tenure && balance > 0) {
-            var interestRate = 0;
-            interestRate = this.interestRates[month] || interestRate;
-
-            var interestPortion = (balance * interestRate / 100) / 12,
+            var interestRate = this.interestRates[month] || interestRate,
+                interestPortion = (balance * interestRate / 100) / 12,
                 principlePortion = (this.windfall[month] || this.emi) - interestPortion,
                 balance = balance - principlePortion,
                 monthData = {"duration":month,
-                    "interestRate":this.interestRates[month],
+                    "interestRate":interestRate,
                     "EMIAmt":(interestPortion + principlePortion),
                     "interestAmt":interestPortion,
                     "principleAmt":principlePortion,
@@ -34,7 +33,7 @@ function Loan(details) {
     }
 
     this.addInterestRates = function (month, percent) {
-        this.interestRates[i] = percent;
+        this.interestRates[month] = percent;
     }
 
     this.getEffectiveTenure = function () {
