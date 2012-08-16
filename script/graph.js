@@ -1,11 +1,13 @@
 function Graph() {
     this.view = $(".graph-section")
 
+    this.init = function () {
+        this.graphScroll = new iScroll('graph-scroll');
+    }
+    this.init();
+
     this.load = function (loan) {
         this.loan = loan;
-
-        this.graphScroll = new iScroll('graph-scroll');
-
         this.refresh();
     }
 
@@ -42,7 +44,7 @@ function Graph() {
         this.highlight(month);
     }
 
-    this.highlight = function(month) {
+    this.highlight = function (month) {
         var selector = ".bar:nth-child(" + month + ")";
         $(".bar").removeClass("bar-highlight");
         $(selector).addClass("bar-highlight");

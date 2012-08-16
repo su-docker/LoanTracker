@@ -1,13 +1,14 @@
 function Scroller() {
 
-    this.load = function (loan) {
-        this.loan = loan;
-
+    this.init = function () {
         addInterestRatesEditorHandlers();
         addEmiEditorHandlers();
-
         this.stickyScroll = new iScroll('stickies-scroll');
+    }
+    this.init();
 
+    this.load = function (loan) {
+        this.loan = loan;
         this.refresh();
     }
 
