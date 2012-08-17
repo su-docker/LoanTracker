@@ -28,8 +28,11 @@ function Loan(details) {
         return monthlyCalc;
     }
 
-    this.addWindfall = function (month, amount) {
-        this.windfall[month] = amount
+    this.addWindfall = function (month, amount, repeat) {
+        var endMonth = repeat ? this.tenure : month;
+        for(var i = month; i <= endMonth; i++) {
+            this.windfall[i] = amount;
+        }
     }
 
     this.addInterestRates = function (month, percent) {

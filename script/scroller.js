@@ -79,9 +79,9 @@ function Scroller() {
         $("#edit-emi-close").live("tap", function() {
            var newEmi = $("#edit-emi-amount").val(),
                loanVisualizer = $(".loan-visualizer").data(),
-               month = $("#edit-emi-month").val();
-            console.log(month + "-" + newEmi);
-            loanVisualizer.loan.addWindfall(month, new Number(newEmi));
+               month = $("#edit-emi-month").val(),
+               repeat = $("#edit-emi-repeat").prop("checked");
+            loanVisualizer.loan.addWindfall(month, new Number(newEmi), repeat);
             loanVisualizer.refresh();
         });
     }
