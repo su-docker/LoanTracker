@@ -20,3 +20,6 @@ Number.prototype.toHumanDuration = function () {
     if (month > 0) timeframe += (month + " month" + (month == 1 ? " " : "s "));
     return timeframe;
 }
+
+//JQuery mobile configuration
+$.event.special.swipe.horizontalDistanceThreshold = 100

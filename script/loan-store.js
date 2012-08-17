@@ -9,6 +9,13 @@ LoanStore.save = function (loan) {
     localStorage[loan.name] = JSON.stringify(loan)
 }
 
+LoanStore.delete = function (loan) {
+    var allLoanNames = JSON.parse(localStorage["loans"]);
+    delete allLoanNames[loan.name];
+    localStorage["loans"] = JSON.stringify(allLoanNames);
+    localStorage.removeItem(loan.name);
+}
+
 LoanStore.fetchAll = function () {
     var allLoanNames = JSON.parse(localStorage["loans"]),
         loans = [];

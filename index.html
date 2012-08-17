@@ -21,13 +21,13 @@
     <script src="script/loan-list.js"></script>
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             window.loanVisualizer = new LoanVisualizer();
         })
     </script>
 
     <script id="listItem" type="text/html">
-        <li><a href="#loan-details">{{ name }}</a></li>
+        <li><a>{{ name }}</a></li>
     </script>
 
     <script id="detailTile" type="text/html">
@@ -68,6 +68,10 @@
     <div data-role="content">
         <ul data-role="listview" id="list-loans">
         </ul>
+        <div class="instructions">
+            Swipe to delete <br/>
+            Tap hold to edit
+        </div>
     </div>
 </div>
 
@@ -105,8 +109,8 @@
 <div data-role="page" id="loan-details">
     <div data-role="header" class="header-section">
         <a href="#list-loans-page">&lt;</a>
+
         <h1>Royal Homes Loan</h1>
-        <a href="">-</a>
     </div>
     <div data-role="content" class="loan-visualizer">
         <div class="duration"></div>
@@ -131,7 +135,7 @@
             <label for="edit-emi-amount">Amount</label>
             <input type="text" name="emi" id="edit-emi-amount" value="" placeholder="Amount"/>
             <input type="checkbox" name="repeat" id="edit-emi-repeat"/>
-            <label for="edit-emi-repeat">Repeat</label>
+            <label for="edit-emi-repeat">Also future months</label>
             <input type="hidden" id="edit-emi-month"/>
         </div>
         <a id="edit-emi-close" data-rel="back" data-role='button' href='#'> Update </a>
@@ -151,5 +155,16 @@
         <a id="edit-interest-close" data-rel="back" data-role='button' href='#'> Update </a>
     </div>
 </div>
+
+<div data-role="page" id="delete-confirmation">
+    <div data-role="header">
+        <h1>Confirm</h1>
+    </div>
+    <div data-role="content">
+        <p> <span class="name"></span> will be gone forever. Sure?</p>
+        <a data-role="button" data-rel="back" id="delete-loan-btn">Delete</a>
+    </div>
+</div>
+
 </body>
 </html>
