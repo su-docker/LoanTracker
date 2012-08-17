@@ -63,7 +63,7 @@
 
     <div data-role="header">
         <h1>Debt Free</h1>
-        <a href="#add-loan" data-rel="dialog">+</a>
+        <a id="add-loan-btn">+</a>
     </div>
     <div data-role="content">
         <ul data-role="listview" id="list-loans">
@@ -100,8 +100,8 @@
             <label for="add-loan-emi">EMI</label>
             <input type="number" id="add-loan-emi" data-mini="true"/>
         </div>
+        <a id="add-loan-create" data-rel="back" data-role='button' href='#'> Create </a>
     </div>
-    <a id="add-loan-create" data-rel="back" data-role='button' href='#'> Create </a>
 </div>
 </div>
 
@@ -110,7 +110,7 @@
     <div data-role="header" class="header-section">
         <a href="#list-loans-page">&lt;</a>
 
-        <h1>Royal Homes Loan</h1>
+        <h1></h1>
     </div>
     <div data-role="content" class="loan-visualizer">
         <div class="duration"></div>
@@ -161,7 +161,7 @@
         <h1>Confirm</h1>
     </div>
     <div data-role="content">
-        <p> <span class="name"></span> will be gone forever. Sure?</p>
+        <p><span class="name"></span> will be gone forever. Sure?</p>
         <a data-role="button" data-rel="back" id="delete-loan-btn">Delete</a>
     </div>
 </div>

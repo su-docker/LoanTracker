@@ -3,12 +3,17 @@ function LoanList() {
     var that = this;
 
     function init() {
-        $("#add-loan-create").live("tap", function () {
+        $("#add-loan-btn").on("tap", function() {
+            initAddForm();
+            $.mobile.changePage("#add-loan", {transition:'pop', role:'dialog'})
+        });
+
+        $("#add-loan-create").on("tap", function () {
             that.create();
             that.refresh();
         });
 
-        $("#delete-loan-btn").live("tap", function () {
+        $("#delete-loan-btn").on("tap", function () {
             var loan = $("#delete-confirmation").data();
             LoanStore.delete(loan);
             that.refresh();
@@ -63,12 +68,7 @@ function LoanList() {
         $(listItem).on("taphold", function (event) {
             stopTap = true;
             var loan = $(this).data();
-            $("#add-loan-name").val(loan.name);
-            $("#add-loan-name").attr("disabled", "true");
-            $("#add-loan-amount").val(loan.amount);
-            $("#add-loan-emi").val(loan.emi);
-            $("#add-loan-interest").val(loan.interestRates[1]);
-            $("#add-loan-months").val(loan.tenure);
+            initAddForm(loan);
             $.mobile.changePage("#add-loan", {transition:'pop', role:'dialog'})
         })
 
@@ -79,6 +79,19 @@ function LoanList() {
             $("#delete-confirmation").find(".name").html(loan.name);
             $.mobile.changePage("#delete-confirmation", {transition:'pop', role:'dialog'})
         })
+    }
+
+    function initAddForm(loan) {
+        $("#add-loan-name").val(loan ? loan.name : "");
+        $("#add-loan-amount").val(loan ? loan.amount : "");
+        $("#add-loan-emi").val(loan ? loan.emi : "");
+        $("#add-loan-interest").val(loan ? loan.interestRates[1] : "");
+        $("#add-loan-months").val(loan ? loan.tenure : "");
+        if(loan) {
+            $("#add-loan-name").attr("disabled", "true");
+        } else {
+            $("#add-loan-name").removeAttr("disabled");
+        }
     }
 
 

@@ -34,6 +34,7 @@ function LoanVisualizer() {
     this.load = function (loan) {
         this.loan = loan;
         $(".loan-visualizer").data(this);
+        $("#loan-details .header-section h1").html(loan.name);
         this.scroller.load(loan);
         this.graph.load(loan);
     }
