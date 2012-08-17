@@ -1,7 +1,7 @@
 function Loan(details) {
     this.name = details["name"] || "default";
     this.amount = details["amount"];
-    this.tenure = details["tenure"];
+    this.tenure = 600; //Fixed to 50 years max
     this.emi = details["emi"];
     this.windfall = details["windfall"] || {};
     this.interestRates = details["interestRates"] || {};

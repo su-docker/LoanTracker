@@ -26,10 +26,9 @@ function LoanList() {
         var name = $("#add-loan-name").val(),
             amount = $("#add-loan-amount").val().replace(/,/g, ""),
             emi = $("#add-loan-emi").val().replace(/,/g, ""),
-            interest = $("#add-loan-interest").val().replace(/%/g, ""),
-            tenure = $("#add-loan-months").val();
+            interest = $("#add-loan-interest").val().replace(/%/g, "");
         var interestRates = {1:interest};
-        LoanStore.save(new Loan({"name":name, "amount":amount, "tenure":tenure, "emi":emi, "interestRates":interestRates }))
+        LoanStore.save(new Loan({"name":name, "amount":amount, "emi":emi, "interestRates":interestRates }))
     }
 
     this.refresh = function () {
@@ -86,7 +85,6 @@ function LoanList() {
         $("#add-loan-amount").val(loan ? loan.amount : "");
         $("#add-loan-emi").val(loan ? loan.emi : "");
         $("#add-loan-interest").val(loan ? loan.interestRates[1] : "");
-        $("#add-loan-months").val(loan ? loan.tenure : "");
         if(loan) {
             $("#add-loan-name").attr("disabled", "true");
         } else {

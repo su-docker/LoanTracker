@@ -77,30 +77,15 @@
 
 <div data-role="page" id="add-loan">
     <div data-role="header">
-        <h1>Add Loan</h1>
+        <h1>Loan Details</h1>
     </div>
     <div data-role="content">
-        <div data-role="fieldcontain">
-            <label for="add-loan-name">Name</label>
-            <input type="text" id="add-loan-name"/>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="add-loan-amount">Loan Amount</label>
-            <input type="number" id="add-loan-amount" data-mini="true"/>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="add-loan-months">Tenure</label>
-            <input type="number" id="add-loan-months" placeholder="months" data-mini="true"/>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="add-loan-interest">Interest %</label>
-            <input type="number" id="add-loan-interest" data-mini="true"/>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="add-loan-emi">EMI</label>
-            <input type="number" id="add-loan-emi" data-mini="true"/>
-        </div>
-        <a id="add-loan-create" data-rel="back" data-role='button' href='#'> Create </a>
+        I have a loan named <input type="text" id="add-loan-name" placeholder="unique name"/>
+        of <input type="number" id="add-loan-amount" data-mini="true" placeholder="amount"/>
+        with current interest rate at <input type="number" id="add-loan-interest" placeholder="%"/>
+        and paying <input type="number" id="add-loan-emi" placeholder="EMI"/> per month.
+
+        <a id="add-loan-create" data-rel="back" data-role='button' href='#'> Remember </a>
     </div>
 </div>
 </div>
