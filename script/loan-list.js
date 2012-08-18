@@ -5,7 +5,7 @@ function LoanList() {
     function init() {
         $("#add-loan-btn").on("tap", function() {
             initAddForm();
-            $.mobile.changePage("#add-loan", {transition:'pop', role:'dialog'})
+            $.mobile.changePage("#add-loan", {transition:'fade', role:'dialog'})
         });
 
         $("#add-loan-create").on("tap", function () {
@@ -68,7 +68,7 @@ function LoanList() {
             stopTap = true;
             var loan = $(this).data();
             initAddForm(loan);
-            $.mobile.changePage("#add-loan", {transition:'pop', role:'dialog'})
+            $.mobile.changePage("#add-loan", {transition:'fade', role:'dialog'})
         })
 
         $(listItem).on("swipe", function () {
@@ -76,7 +76,7 @@ function LoanList() {
             var loan = $(this).data();
             $("#delete-confirmation").data(loan);
             $("#delete-confirmation").find(".name").html(loan.name);
-            $.mobile.changePage("#delete-confirmation", {transition:'pop', role:'dialog'})
+            $.mobile.changePage("#delete-confirmation", {transition:'fade', role:'dialog'})
         })
     }
 

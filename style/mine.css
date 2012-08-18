@@ -3,6 +3,39 @@
     src: url("/daniel.ttf");
 }
 
+body, input {
+    font-family: daniel;
+}
+
+input {
+    background: transparent;
+    background-image: url("/image/line-blue.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    border: none;
+    display: inline-block;
+}
+
+a {
+    color: #2489ce;
+    text-decoration: none;
+}
+
+input:disabled {
+    background-image: url("/image/line.png");
+}
+
+.ui-dialog .ui-header a.ui-btn { display:none; }
+
+center {
+    text-align: center;
+}
+
+#add-loan-name {width: 80%; display: inline-block;}
+#add-loan-amount { width: 50%; display: inline-block;}
+#add-loan-emi { width: 40%; display: inline-block;}
+#add-loan-interest { width: 25%; display: inline-block;}
+
 .instructions {
     position: absolute;
     bottom: 0px;
@@ -36,7 +69,6 @@
     position: absolute;
     right:0px;
     padding: 10px;
-    color: blue;
 }
 
 .bar {
@@ -46,6 +78,7 @@
     /*box-shadow: inset #77807c -1px 1px 0px 1px  ;*/
     background-image: url("/image/bar-line.png");
     background-size: cover;
+    background-repeat: no-repeat;
     width: 10px;
 }
 
