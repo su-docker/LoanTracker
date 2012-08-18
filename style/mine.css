@@ -57,7 +57,7 @@ li {
     background-repeat: no-repeat;
 }
 
-.ui-title {
+.ui-title, .date {
     background-image: url("/image/line-thin.png");
     background-position: bottom;
     background-repeat: no-repeat;
@@ -68,10 +68,6 @@ li {
     background-image: url("/image/forward.png");
     background-size: 16px;
     background-repeat: no-repeat;
-}
-
-.center {
-    text-align: center;
 }
 
 #add-loan-name {width: 80%; display: inline-block;}
@@ -115,10 +111,8 @@ li {
 }
 
 .bar {
-    /*background-color: #b3b3b3;*/
     display: inline-block;
     float: none;
-    /*box-shadow: inset #77807c -1px 1px 0px 1px  ;*/
     background-image: url("/image/bar-line.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -134,50 +128,65 @@ li {
 }
 
 .detail-tile {
-    width: 13em;
+    width: 15em;
     display: inline-block;
-    /*border: 1px solid #525b57;*/
-    /*border-radius: 0.5em;*/
     margin: 2px;
     background-image: url("/image/sticky-pale.png");
-    background-size: cover;
-    /*background-position: center;*/
+    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 .detail-tile-highlight {
     background-image: url("/image/sticky.png");
 }
 
-.date {
-    /*font-size: 1.2em;*/
-    text-align: center;
-    padding-top: 1em;
-}
+/*-------------*/
 
-.interest {
-    text-align: center;
-    padding-top: 1em;
-    cursor: pointer;
-}
-
-.emi {
-    text-align: center;
-    padding-top: 0.8em;
-    font-size: 1.2em;
-}
-
-.emi-interest, .emi-principal {
-    width: 48%;
+.column-left {
+    width: 52%;
+    text-align: right;
     display: inline-block;
 }
 
-.emi-interest {
-    text-align: right;
+.column-right {
+    width: 44%;
+    text-align: left;
+    display: inline-block;
 }
 
-.balance {
-    font-size: 1.5em;
-    color: red;
-    text-align: center;
+.big {
+    font-size: 1.3em;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+.gap-above {
     padding-top: 1em;
+}
+
+.gap-above-small {
+    padding-top: 0.5em;
+}
+
+.highlight {
+    color: red;
+}
+
+.half-line {
+    background-image: url("/image/line-thin.png");
+    height: 5px;
+    background-size: 50% 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
 }

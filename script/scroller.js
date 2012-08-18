@@ -71,7 +71,7 @@ function Scroller() {
 
     function addEmiEditorHandlers() {
         $(".emi").live("tap", function() {
-            var monthlyData = $(this).parent(".detail-tile").data();
+            var monthlyData = $(this).closest(".detail-tile").data();
             $("#edit-emi-month").val(monthlyData.month);
             $("#edit-emi-amount").val(monthlyData.EMIAmt.replace(/,/g,""));
         });

@@ -27,8 +27,8 @@ function LoanVisualizer() {
         var windowHeight = $(window).outerHeight(true),
             headerHeight = $(".header-section").outerHeight(true),
             availableHeight = windowHeight - headerHeight;
-        $(".details-section").height(availableHeight / 2)
-        $(".graph-section").height(availableHeight / 2);
+        $(".details-section").height(availableHeight * 0.6);
+        $(".graph-section").height(availableHeight * 0.4);
     }
 
     this.load = function (loan) {

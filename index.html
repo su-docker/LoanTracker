@@ -33,21 +33,30 @@
 
     <script id="detailTile" type="text/html">
         <div class="detail-tile tile-{{ month }}">
-            <div class="date">
+            <div class="center gap-above">
                 {{ duration }}
             </div>
-            <div class="interest">
+            <div class="interest center gap-above-small big">
                 <a href="#edit-interest" data-rel="dialog"> {{ interestRate }}% </a>
             </div>
-            <div class="emi">
-                <a href="#edit-emi" data-rel="dialog"> {{ EMIAmt }} </a>
+            <div class="gap-above-small">
+                <div class="column-left">Interest</div>
+                <div class="column-right">{{ interestAmt }}/-</div>
             </div>
-            <div class="emi-split">
-                <div class="emi-interest">{{ interestAmt }}</div>
-                <div class="emi-principal">{{ principleAmt }}</div>
+            <div>
+                <div class="column-left">Principle</div>
+                <div class="column-right">{{ principleAmt }}/-</div>
             </div>
-            <div class="balance">
-                {{ balanceAmt }}
+            <div class="half-line"></div>
+            <div class="emi-total">
+                <div class="column-left">Total</div>
+                <div class="emi column-right">
+                    <a href="#edit-emi" data-rel="dialog"> {{ EMIAmt }}/- </a>
+                </div>
+            </div>
+            <div class="center gap-above">Balance</div>
+            <div class="center big">
+                {{ balanceAmt }}/-
             </div>
         </div>
     </script>
