@@ -4,7 +4,7 @@
     <title>Debt Free</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="style/jquery.mobile.structure-1.1.1.css"/>
-    <link rel="stylesheet" href="style/themes/my-theme.css"/>
+    <!--<link rel="stylesheet" href="style/themes/my-theme.css"/>-->
     <link rel="stylesheet" href="style/mine.css"/>
 
 
@@ -64,7 +64,7 @@
 
     <div data-role="header">
         <h1>Debt Free</h1>
-        <a id="add-loan-btn">+</a>
+        <a id="add-loan-btn"></a>
     </div>
     <div data-role="content">
         <ul data-role="listview" id="list-loans">
@@ -97,8 +97,7 @@
 
 <div data-role="page" id="loan-details" class="page">
     <div data-role="header" class="header-section">
-        <a href="#list-loans-page">&lt;</a>
-
+        <a href="#list-loans-page" class="back-btn"></a>
         <h1></h1>
     </div>
     <div data-role="content" class="loan-visualizer">

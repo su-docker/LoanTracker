@@ -24,8 +24,8 @@ function LoanVisualizer() {
     init(this);
 
     function adjustDifferentSectionHeights() {
-        var windowHeight = $(window).height(),
-            headerHeight = $(".header-section").height(),
+        var windowHeight = $(window).outerHeight(true),
+            headerHeight = $(".header-section").outerHeight(true),
             availableHeight = windowHeight - headerHeight;
         $(".details-section").height(availableHeight / 2)
         $(".graph-section").height(availableHeight / 2);

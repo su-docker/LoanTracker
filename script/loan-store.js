@@ -10,14 +10,14 @@ LoanStore.save = function (loan) {
 }
 
 LoanStore.delete = function (loan) {
-    var allLoanNames = JSON.parse(localStorage["loans"]);
+    var allLoanNames = localStorage["loans"] ? JSON.parse(localStorage["loans"]) : {};
     delete allLoanNames[loan.name];
     localStorage["loans"] = JSON.stringify(allLoanNames);
     localStorage.removeItem(loan.name);
 }
 
 LoanStore.fetchAll = function () {
-    var allLoanNames = JSON.parse(localStorage["loans"]),
+    var allLoanNames = localStorage["loans"] ? JSON.parse(localStorage["loans"]) : {},
         loans = [];
     for (var loanName in allLoanNames) {
         var loanData = JSON.parse(localStorage[loanName]);

@@ -3,6 +3,12 @@
     src: url("/daniel.ttf");
 }
 
+.ui-icon-loading {
+    background: url(/image/ajax-loader.gif);
+    background-size: 46px 46px;
+}
+
+
 body, input {
     font-family: daniel;
 }
@@ -27,7 +33,44 @@ input:disabled {
 
 .ui-dialog .ui-header a.ui-btn { display:none; }
 
-center {
+#add-loan-btn {
+    background-image: url("/image/add.png");
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 0px;
+}
+
+.back-btn {
+    background-image: url("/image/back.png");
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 0px !important;
+}
+
+li {
+    background-image: url("/image/line-thin.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.ui-title {
+    background-image: url("/image/line-thin.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 50% 4px;
+}
+
+.ui-icon-arrow-r {
+    background-image: url("/image/forward.png");
+    background-size: 16px;
+    background-repeat: no-repeat;
+}
+
+.center {
     text-align: center;
 }
 
