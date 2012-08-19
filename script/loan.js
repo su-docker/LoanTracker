@@ -5,6 +5,7 @@ function Loan(details) {
     this.emi = details["emi"];
     this.windfall = details["windfall"] || {};
     this.interestRates = details["interestRates"] || {};
+    this.date = details["date"];
 
     this.calculate = function () {
         var monthlyCalc = [],
@@ -16,12 +17,14 @@ function Loan(details) {
                 interestPortion = (balance * interestRate / 100) / 12,
                 principlePortion = (this.windfall[month] || this.emi) - interestPortion,
                 balance = balance - principlePortion,
+                date = new Date(this.date.getFullYear(), this.date.getMonth() + month),
                 monthData = {"duration":month,
                     "interestRate":interestRate,
                     "EMIAmt":(interestPortion + principlePortion),
                     "interestAmt":interestPortion,
                     "principleAmt":principlePortion,
-                    "balanceAmt":balance };
+                    "balanceAmt":balance,
+                    "date":date.toLabel()};
             monthlyCalc.push(monthData);
             month++;
         }
@@ -30,7 +33,7 @@ function Loan(details) {
 
     this.addWindfall = function (month, amount, repeat) {
         var endMonth = repeat ? this.tenure : month;
-        for(var i = month; i <= endMonth; i++) {
+        for (var i = month; i <= endMonth; i++) {
             this.windfall[i] = amount;
         }
     }

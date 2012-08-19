@@ -70,6 +70,7 @@ li {
     background-repeat: no-repeat;
 }
 
+#add-loan-date {width: 40%; display: inline-block;}
 #add-loan-name {width: 80%; display: inline-block;}
 #add-loan-amount { width: 50%; display: inline-block;}
 #add-loan-emi { width: 40%; display: inline-block;}
@@ -108,12 +109,17 @@ li {
     position: absolute;
     right:0px;
     padding: 10px;
+    z-index: 10;
+    background-image: url("/image/mark.png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .bar {
     display: inline-block;
     float: none;
-    background-image: url("/image/bar-line.png");
+    background-image: url("/image/bar.png");
     background-size: cover;
     background-repeat: no-repeat;
     width: 10px;

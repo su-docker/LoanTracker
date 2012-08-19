@@ -21,6 +21,7 @@ LoanStore.fetchAll = function () {
         loans = [];
     for (var loanName in allLoanNames) {
         var loanData = JSON.parse(localStorage[loanName]);
+        loanData.date = new Date(loanData.date);
         loans.push(new Loan(loanData));
     }
     return loans;

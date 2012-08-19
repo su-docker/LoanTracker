@@ -33,10 +33,10 @@
 
     <script id="detailTile" type="text/html">
         <div class="detail-tile tile-{{ month }}">
-            <div class="center gap-above">
-                {{ duration }}
+            <div class="center gap-above small">
+                {{ date }} ({{ duration }})
             </div>
-            <div class="interest center gap-above-small big">
+            <div class="interest center gap-above big">
                 <a href="#edit-interest" data-rel="dialog"> {{ interestRate }}% </a>
             </div>
             <div class="gap-above-small">
@@ -49,7 +49,7 @@
             </div>
             <div class="half-line"></div>
             <div class="emi-total">
-                <div class="column-left">Total</div>
+                <div class="column-left">EMI</div>
                 <div class="emi column-right">
                     <a href="#edit-emi" data-rel="dialog"> {{ EMIAmt }}/- </a>
                 </div>
@@ -93,7 +93,9 @@
         I have a loan named <input type="text" id="add-loan-name" placeholder="unique name"/>
         of <input type="number" id="add-loan-amount" placeholder="amount"/>
         with current interest rate at <input type="number" id="add-loan-interest" placeholder="%"/>
-        and paying <input type="number" id="add-loan-emi" placeholder="EMI"/> per month.
+        and paying <input type="number" id="add-loan-emi" placeholder="EMI"/>
+        per month as of date <input type="text" id="add-loan-date" placeholder="mm/yyyy"/>
+
 
         <div data-role="fieldcontain" class="center">
             <a data-rel="back" data-role='button' data-inline="true" href='#'> Go Back </a>

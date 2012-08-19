@@ -21,5 +21,19 @@ Number.prototype.toHumanDuration = function () {
     return timeframe;
 }
 
+String.prototype.toDate = function () {
+    var elements = this.valueOf().split("/"),
+        month = elements[0] - 1, //Month starts with 0 in javascript
+        year = elements[1];
+    return new Date(year, month);
+}
+
+Date.prototype.toLabel = function () {
+    var month = this.getMonth()+ 1,
+        year = this.getFullYear();
+    return  month + "/" + year;
+}
+
+
 //JQuery mobile configuration
 $.event.special.swipe.horizontalDistanceThreshold = 100
