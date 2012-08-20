@@ -28,7 +28,7 @@ String.prototype.toDate = function () {
     return new Date(year, month);
 }
 
-Date.prototype.toLabel = function () {
+Date.prototype.toMonthYearLabel = function () {
     var month = this.getMonth()+ 1,
         year = this.getFullYear();
     return  month + "/" + year;

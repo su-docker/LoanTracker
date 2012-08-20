@@ -1,10 +1,10 @@
 @font-face {
     font-family: daniel;
-    src: url("/daniel.ttf");
+    src: url("../daniel.ttf");
 }
 
 .ui-icon-loading {
-    background: url(/image/ajax-loader.gif);
+    background: url(../image/ajax-loader.gif);
     background-size: 46px 46px;
 }
 
@@ -15,7 +15,7 @@ body, input {
 
 input {
     background: transparent;
-    background-image: url("/image/line-blue.png");
+    background-image: url("../image/line-blue.png");
     background-position: bottom;
     background-repeat: no-repeat;
     border: none;
@@ -28,13 +28,13 @@ a {
 }
 
 input:disabled {
-    background-image: url("/image/line.png");
+    background-image: url("../image/line.png");
 }
 
 .ui-dialog .ui-header a.ui-btn { display:none; }
 
 #add-loan-btn {
-    background-image: url("/image/add.png");
+    background-image: url("../image/add.png");
     width: 32px;
     height: 32px;
     background-size: contain;
@@ -43,7 +43,7 @@ input:disabled {
 }
 
 .back-btn {
-    background-image: url("/image/back.png");
+    background-image: url("../image/back.png");
     width: 32px;
     height: 32px;
     background-size: contain;
@@ -52,20 +52,20 @@ input:disabled {
 }
 
 li {
-    background-image: url("/image/line-thin.png");
+    background-image: url("../image/line-thin.png");
     background-position: bottom;
     background-repeat: no-repeat;
 }
 
 .ui-title, .date {
-    background-image: url("/image/line-thin.png");
+    background-image: url("../image/line-thin.png");
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 50% 4px;
 }
 
 .ui-icon-arrow-r {
-    background-image: url("/image/forward.png");
+    background-image: url("../image/forward.png");
     background-size: 16px;
     background-repeat: no-repeat;
 }
@@ -92,7 +92,7 @@ li {
 }
 
 .page {
-    background-image: url("/image/crumpled-paper.jpg");
+    background-image: url("../image/crumpled-paper.jpg");
     background-size: cover;
 }
 
@@ -110,7 +110,7 @@ li {
     right:0px;
     padding: 10px;
     z-index: 10;
-    background-image: url("/image/mark.png");
+    background-image: url("../image/mark.png");
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -119,14 +119,14 @@ li {
 .bar {
     display: inline-block;
     float: none;
-    background-image: url("/image/bar.png");
+    background-image: url("../image/bar.png");
     background-size: cover;
     background-repeat: no-repeat;
     width: 10px;
 }
 
 .bar-highlight {
-    background-image: url("/image/bar-highlight.png");
+    background-image: url("../image/bar-highlight.png");
 }
 
 .details-section {
@@ -137,13 +137,13 @@ li {
     width: 15em;
     display: inline-block;
     margin: 2px;
-    background-image: url("/image/sticky-pale.png");
+    background-image: url("../image/sticky-pale.png");
     background-size: auto;
     background-repeat: no-repeat;
 }
 
 .detail-tile-highlight {
-    background-image: url("/image/sticky.png");
+    background-image: url("../image/sticky.png");
 }
 
 /*-------------*/
@@ -181,7 +181,7 @@ li {
 }
 
 .half-line {
-    background-image: url("/image/line-thin.png");
+    background-image: url("../image/line-thin.png");
     height: 5px;
     background-size: 50% 4px;
     background-repeat: no-repeat;

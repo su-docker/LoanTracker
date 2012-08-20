@@ -24,7 +24,7 @@ function Loan(details) {
                     "interestAmt":interestPortion,
                     "principleAmt":principlePortion,
                     "balanceAmt":balance,
-                    "date":date.toLabel()};
+                    "date":date.toMonthYearLabel()};
             monthlyCalc.push(monthData);
             month++;
         }

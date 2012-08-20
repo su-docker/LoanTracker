@@ -55,7 +55,6 @@ function LoanList() {
 
         $(listItem).on("tap", function () {
             if (!stopTap) {
-                console.log("tap triggered");
                 var that = this;
                 setTimeout(function () {
                     var loan = $(that).data();
