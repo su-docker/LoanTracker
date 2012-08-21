@@ -15,7 +15,7 @@ function LoanList() {
 
         $("#delete-loan-btn").on("tap", function () {
             var loan = $("#delete-confirmation").data();
-            LoanStore.delete(loan);
+            LoanStore.deleteLoan(loan);
             that.refresh();
         });
     }
@@ -29,7 +29,7 @@ function LoanList() {
             interest = $("#add-loan-interest").val().replace(/%/g, ""),
             dateStr = $("#add-loan-date").val();
         var interestRates = {1:interest},
-            date = getDate(dateStr);
+            date = dateStr.toDate();
         LoanStore.save(new Loan({"name":name, "amount":amount, "emi":emi, "interestRates":interestRates, "date":date}));
     }
 
@@ -86,7 +86,7 @@ function LoanList() {
         $("#add-loan-amount").val(loan ? loan.amount : "");
         $("#add-loan-emi").val(loan ? loan.emi : "");
         $("#add-loan-interest").val(loan ? loan.interestRates[1] : "");
-        $("#add-loan-date").val(loan ? loan.date.toLabel() : "");
+        $("#add-loan-date").val(loan ? loan.date.toMonthYearLabel() : "");
         if(loan) {
             $("#add-loan-name").attr("disabled", "true");
         } else {
