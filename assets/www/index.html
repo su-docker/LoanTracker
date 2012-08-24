@@ -11,6 +11,7 @@
     <script src="script/lib/jquery.mobile-1.1.1.min.js"></script>
     <script src="script/lib/iscroll-lite.js"></script>
     <script src="script/lib/ICanHaz.min.js"></script>
+    <script src="script/lib/cordova-2.0.0.js"></script>
 
     <script src="script/extensions.js"></script>
     <script src="script/loan.js"></script>
@@ -19,7 +20,19 @@
     <script src="script/loan-visualizer.js"></script>
     <script src="script/loan-store.js"></script>
     <script src="script/loan-list.js"></script>
-
+    <script type="text/javascript">
+	    document.addEventListener("deviceready", function() {
+		    document.addEventListener("backbutton", function(e) {
+		    	if($.mobile.activePage.is("#list-loans-page")) {
+		    		e.preventDefault();
+		    		navigator.app.exitApp();
+		    	} else {
+		    		navigator.app.backHistory();
+		    	}
+		   	}, false);
+	    });	    
+    </script>
+    
     <script id="listItem" type="text/html">
         <li><a>{{ name }}</a></li>
     </script>

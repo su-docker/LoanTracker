@@ -13,11 +13,12 @@ function Scroller() {
     }
 
     this.refresh = function () {
+    	console.log("scroller refresh start...");
         $(".details-section div").remove();
         var height = $(".details-section").height();
         datas = this.loan.calculate(true);
+        var tile = ich.detailTile();
         for (var i = 0; i < datas.length; i++) {
-            var tile = ich.detailTile(transformForHumans(datas[i]));
             $(".details-section").append(tile);
             $(".tile-" + datas[i].month).data(datas[i]);
         }
@@ -25,7 +26,9 @@ function Scroller() {
         $(".details-section").css("width", $(".detail-tile").outerWidth(true) * datas.length); //iScroll needs the width of child div
 
         var that = this;
+        console.log("scroller refresh end...");
         setTimeout(function() {refreshScroll(that)}, 1000);
+        console.log("iscroller refresh end...");
     }
 
     this.scrollTo = function(month) {
