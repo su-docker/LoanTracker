@@ -3,38 +3,35 @@ function Scroller() {
     this.init = function () {
         addInterestRatesEditorHandlers();
         addEmiEditorHandlers();
-        addLoadHandler();
         this.stickyScroll = new iScroll('stickies-scroll');
     }
     this.init();
 
     this.load = function (loan) {
         this.loan = loan;
-        $(".details-section div").remove();
-        this.refresh(10);
+        this.refresh();
     }
 
-    this.refresh = function (till) {
+    this.refresh = function () {
+    	console.log("scroller refresh start...");
+        $(".details-section div").remove();
         var height = $(".details-section").height();
         datas = this.loan.calculate(true);
-        console.log("before loop...");
-        var start = $(".details-section").children().size();
-        console.log("start tile: " + start);
-        for (var i = start; (i < till && i < datas.length); i++) {
-            var tile = ich.detailTile(transformForHumans(datas[i]));
+        var tile = ich.detailTile();
+        for (var i = 0; i < datas.length; i++) {
             $(".details-section").append(tile);
             $(".tile-" + datas[i].month).data(datas[i]);
         }
-        console.log("after loop...");
         $(".detail-tile").css("height", height);
         $(".details-section").css("width", $(".detail-tile").outerWidth(true) * datas.length); //iScroll needs the width of child div
 
         var that = this;
+        console.log("scroller refresh end...");
         setTimeout(function() {refreshScroll(that)}, 1000);
+        console.log("iscroller refresh end...");
     }
 
     this.scrollTo = function(month) {
-    	this.refresh(month+10);
         var selector = ".detail-tile:nth-child(" + month + ")";
         this.stickyScroll.scrollToElement(selector, 100);
         this.highlight(month);
@@ -90,14 +87,6 @@ function Scroller() {
             loanVisualizer.loan.addWindfall(month, new Number(newEmi), repeat);
             loanVisualizer.refresh();
         });
-    }
-    
-    function addLoadHandler() {
-    	$(".detail-tile").live("swipe", function(event) {
-    		var currentItems = $(this).parent(".details-section").children().size();
-    		console.log("aaaaa " + currentItems);
-    		window.loanVisualizer.scroller.refresh(currentItems+10);
-    	});
     }
 
 }
