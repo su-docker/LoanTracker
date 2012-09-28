@@ -1,6 +1,6 @@
 @font-face {
     font-family: daniel;
-    src: url("../daniel.ttf");
+    src: url("../danielbd.ttf");
 }
 
 .ui-icon-loading {
@@ -70,7 +70,7 @@ li {
     background-repeat: no-repeat;
 }
 
-#add-loan-date {width: 40%; display: inline-block;}
+#add-loan-date-month, #add-loan-date-year {width: 25%; display: inline-block;}
 #add-loan-name {width: 80%; display: inline-block;}
 #add-loan-amount { width: 50%; display: inline-block;}
 #add-loan-emi { width: 40%; display: inline-block;}
@@ -149,13 +149,14 @@ li {
 /*-------------*/
 
 .column-left {
-    width: 52%;
+    width: 50%;
     text-align: right;
     display: inline-block;
+    padding-right: 0.5em;
 }
 
 .column-right {
-    width: 44%;
+    width: 46%;
     text-align: left;
     display: inline-block;
 }
@@ -184,6 +185,15 @@ li {
     background-image: url("../image/line-thin.png");
     height: 5px;
     background-size: 50% 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 5px;
+}
+
+.mukka-line {
+    background-image: url("../image/line-thin.png");
+    height: 5px;
+    background-size: 75% 4px;
     background-repeat: no-repeat;
     background-position: center;
     padding-bottom: 5px;

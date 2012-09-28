@@ -101,11 +101,10 @@
         of <input type="number" id="add-loan-amount" placeholder="amount"/>
         with current interest rate at <input type="number" id="add-loan-interest" placeholder="%"/>
         and paying <input type="number" id="add-loan-emi" placeholder="EMI"/>
-        per month as of date <input type="text" id="add-loan-date" placeholder="mm/yyyy"/>
+        per month as of date <input type="number" id="add-loan-date-month" placeholder="month"/>/<input type="number" id="add-loan-date-year" placeholder="year"/>
 
 
         <div data-role="fieldcontain" class="center">
-            <a data-rel="back" data-role='button' data-inline="true" href='#'> Go Back </a>
             <a id="add-loan-create" data-rel="back" data-inline="true" data-role='button' href='#'> Remember </a>
         </div>
     </div>
@@ -145,7 +144,6 @@
             <input type="hidden" id="edit-emi-month"/>
         </div>
         <div data-role="fieldcontain" class="center">
-            <a data-rel="back" data-role='button' data-inline="true" href='#'> Go Back </a>
             <a id="edit-emi-close" data-rel="back" data-inline="true" data-role='button' href='#'> Update </a>
         </div>
     </div>
@@ -162,7 +160,6 @@
             <input type="hidden" id="edit-interest-month"/>
         </div>
         <div data-role="fieldcontain" class="center">
-            <a data-rel="back" data-role='button' data-inline="true" href='#'> Go Back </a>
             <a id="edit-interest-close" data-rel="back" data-inline="true" data-role='button' href='#'> Update </a>
         </div>
     </div>
@@ -176,7 +173,6 @@
         <p><span class="name"></span> will be gone forever. Sure?</p>
 
         <div data-role="fieldcontain" class="center">
-            <a data-rel="back" data-role='button' data-inline="true" href='#'> Go Back </a>
             <a data-role="button" data-rel="back" data-inline="true" id="delete-loan-btn" href="#">Delete</a>
         </div>
     </div>

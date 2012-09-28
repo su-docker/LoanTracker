@@ -27,7 +27,7 @@ function LoanList() {
             amount = $("#add-loan-amount").val().replace(/,/g, ""),
             emi = $("#add-loan-emi").val().replace(/,/g, ""),
             interest = $("#add-loan-interest").val().replace(/%/g, ""),
-            dateStr = $("#add-loan-date").val();
+            dateStr = $("#add-loan-date-month").val() + "/" + $("#add-loan-date-year").val();
         var interestRates = {1:interest},
             date = dateStr.toDate();
         LoanStore.save(new Loan({"name":name, "amount":amount, "emi":emi, "interestRates":interestRates, "date":date}));
