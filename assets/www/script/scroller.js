@@ -22,7 +22,6 @@ function Scroller() {
             var tile = ich.detailTile(transformForHumans(datas[i]));
             tile.data(datas[i]);
             fragment.appendChild(tile[0]);
-            //$(".tile-" + datas[i].month).data(datas[i]);
         }
         $(".details-section").append(fragment);
         $(".detail-tile").css("height", height);

@@ -1,8 +1,10 @@
-package com.haasini.debtfree;
+package com.asmi.debtfree;
 
 import android.os.Bundle;
 import android.view.Menu;
 import org.apache.cordova.*;
+
+import com.asmi.debtfree.R;
 
 public class MainActivity extends DroidGap {
 
