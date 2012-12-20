@@ -139,8 +139,10 @@
         <div data-role="fieldcontain" class="ui-hide-label">
             <label for="edit-emi-amount">Amount</label>
             <input type="text" name="emi" id="edit-emi-amount" value="" placeholder="Amount"/>
-            <input type="checkbox" name="repeat" id="edit-emi-repeat"/>
-            <label for="edit-emi-repeat">Also future months</label>
+            <div style="margin-top: 15px" id="edit-emi-repeat">
+	            <img src="image/tick.png" class="show"/>
+	            <label>Also future months</label>
+            </div>
             <input type="hidden" id="edit-emi-month"/>
         </div>
         <div data-role="fieldcontain" class="center">

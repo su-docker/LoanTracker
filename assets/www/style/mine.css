@@ -22,9 +22,25 @@ input {
     display: inline-block;
 }
 
+input.error {
+	background-image: url("../image/line-red.png");
+}
+
 a {
     color: #2489ce;
     text-decoration: none;
+}
+
+a.disabled {
+	color: #f20015;
+}
+
+.show {
+	visibility: visible;
+}
+
+.hide {
+	visibility: hidden;
 }
 
 input:disabled {
