@@ -105,12 +105,10 @@ function LoanList() {
     		el = $(inputFields[fieldIdx]);
     		(el.val().trim() == "") ? el.addClass("error") : el.removeClass("error")
     	}
-    	console.log("a");
     	if ($("#add-loan input.error").length > 0) {
     		$("#add-loan-create").addClass("disabled");
     	} else {
     		$("#add-loan-create").removeClass("disabled");
     	}
-    	console.log("b");
     }
 }

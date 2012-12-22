@@ -19,10 +19,9 @@ function Scroller() {
     	var that = this;
     	$(".details-section div").remove();
     	this.startIndex = this.endIndex = 0;
-        this.append(20);
+        this.append(1);
         $(".detail-tile").live("touchstart", function(e) {
         	var month = $(this).attr("class").match("(.)* (tile\-)([0-9]*)").pop()
-        	//that.append(parseInt(tileIndex));
         	that.highlight(month);
         });
     }

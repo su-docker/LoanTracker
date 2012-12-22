@@ -9,6 +9,7 @@ function Graph() {
     this.load = function (loan) {
         this.loan = loan;
         this.refresh();
+        this.highlight(1);
     }
 
     this.refresh = function () {
