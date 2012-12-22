@@ -66,6 +66,14 @@
             </div>
         </div>
     </script>
+    
+    <script id="loadMoreTile" type="text/html">
+		<div class="load-more-tile {{direction}}-tile">
+            <div class="center gap-above small">
+				<img src="image/{{direction}}.png"/>
+            </div>
+		</div>
+    </script>
 </head>
 
 <body style="margin: 0px">
@@ -118,7 +126,10 @@
         <h1></h1>
     </div>
     <div data-role="content" class="loan-visualizer">
-        <div class="duration"></div>
+        <div class="note-sticky">
+        	<img src="image/mark.png"/>
+        	<div class="duration"></div>
+        </div>
         <div id="graph-scroll">
             <div class="graph-section">
                 <div class="graph"></div>

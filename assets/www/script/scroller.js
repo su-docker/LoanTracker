@@ -5,6 +5,7 @@ function Scroller() {
 	this.init = function () {
         addInterestRatesEditorHandlers();
         addEmiEditorHandlers(); 
+        addLoadMoreHandlers();
         this.stickyScroll = new iScroll('stickies-scroll');
     }
     this.init();
@@ -20,42 +21,52 @@ function Scroller() {
     	this.startIndex = this.endIndex = 0;
         this.append(20);
         $(".detail-tile").live("touchstart", function(e) {
-        	var tileIndex = $(this).attr("class").match("(.)* (tile\-)([0-9]*)").pop()
-        	console.log("touche event : " + (parseInt(tileIndex)+5));
-        	that.append(parseInt(tileIndex) + 5);
+        	var month = $(this).attr("class").match("(.)* (tile\-)([0-9]*)").pop()
+        	//that.append(parseInt(tileIndex));
+        	that.highlight(month);
         });
     }
     
     this.append = function(selectedMonth) {
-    	selectedIndex = parseInt(selectedMonth);
-    	console.log("--- selected : " + selectedIndex + typeof selectedIndex);
-    	console.log("--- endIndex : " + this.endIndex + typeof this.endIndex);
-    	if(selectedIndex > this.endIndex) {
-            var height = $(".details-section").height(),
-        		fragment = document.createDocumentFragment(),
-            	datas = this.loan.calculate(true);
-            console.log("datas[0]: " + datas[0]);
-    		selectedIndex = selectedIndex >= datas.length ? (datas.length-1) : selectedIndex; 
-    		for (var i = this.endIndex; i < selectedIndex; i++) {
-                var tile = ich.detailTile(transformForHumans(datas[i]));
-                tile.data(datas[i]);
-                fragment.appendChild(tile[0]);
-            }
-            $(".details-section").append(fragment);
-            $(".detail-tile").css("height", height);
-            $(".details-section").css("width", $(".detail-tile").outerWidth(true) * datas.length); //iScroll needs the width of child div
-            this.endIndex = selectedIndex;
-            
-            var that = this;
-            setTimeout(function() {refreshScroll(that)}, 1000);    		
-    	}
+        var that = this;
+    	var selectedIndex = parseInt(selectedMonth);    	
+        var height = $(".details-section").height(),
+			fragment = document.createDocumentFragment(),
+    		datas = this.loan.calculate(true);
+
+    	this.startIndex = (selectedIndex-5 < 0) ? 0 : selectedIndex-5;
+    	this.endIndex = (this.startIndex+10 >= datas.length) ? datas.length-1 : this.startIndex+10;
+        $(".details-section div").remove();
+        
+        if(this.startIndex > 0) {
+        	$(".details-section").append(ich.loadMoreTile({direction: "left"}));
+        } else {
+        	$(".left-tile").remove();
+        }
+        for(var i=this.startIndex; i <= this.endIndex; i++) {
+            var tile = ich.detailTile(transformForHumans(datas[i]));
+            tile.data(datas[i]);
+            fragment.appendChild(tile[0]);
+    	}    	
+        $(".details-section").append(fragment);
+        if(this.endIndex < datas.length-1) {
+        	$(".details-section").append(ich.loadMoreTile({direction: "right"}))
+        } else {
+        	$(".right-tile").remove();
+        }
+        
+        $(".detail-tile").css("height", height);
+        var tilesWidth = $(".detail-tile").outerWidth(true) * (this.endIndex - this.startIndex + 1);
+        $(".details-section").css("width", $(".left-tile").outerWidth(true) + tilesWidth + $(".right-tile").outerWidth(true)); //iScroll needs the width of child div
+        
+    	refreshScroll(that);
+        var selector = ".tile-" + selectedMonth;
+        that.stickyScroll.scrollToElement(selector, 100);
+        that.highlight(selectedMonth);
     }
 
     this.scrollTo = function(month) {
     	this.append(month);
-        var selector = ".tile-" + month;
-        this.stickyScroll.scrollToElement(selector, 100);
-        this.highlight(month);
     }
 
     this.highlight = function(month) {
@@ -113,5 +124,13 @@ function Scroller() {
             loanVisualizer.loan.addWindfall(month, new Number(newEmi), repeat);
             loanVisualizer.refresh();
         });
+    }
+    
+    function addLoadMoreHandlers() {
+    	$(".load-more-tile").live("tap", function() {
+    		var it = window.loanVisualizer.scroller,
+    			monthIndex = $(this).hasClass("left-tile") ? it.startIndex+1 : it.endIndex+1;
+    		it.append(monthIndex);
+    	});
     }
 }

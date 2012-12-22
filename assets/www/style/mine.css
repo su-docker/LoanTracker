@@ -121,24 +121,30 @@ li {
     overflow: hidden;
 }
 
-.duration {
+.note-sticky {
     position: absolute;
     right:0px;
-    padding: 10px;
     z-index: 10;
-    background-image: url("../image/mark.png");
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+}
+
+.note-sticky img {
+	position: relative;
+	top: 0px;
+}
+
+.duration {
+	position: absolute;
+	top: 20px;
+	left: 35px;
 }
 
 .bar {
     display: inline-block;
     float: none;
     background-image: url("../image/bar.png");
-    background-size: cover;
+    background-size: auto auto; 
     background-repeat: no-repeat;
-    width: 10px;
+    width: 20px;
 }
 
 .bar-highlight {
@@ -156,6 +162,10 @@ li {
     background-image: url("../image/sticky-pale.png");
     background-size: auto;
     background-repeat: no-repeat;
+}
+
+.load-more-tile {
+	display: inline-block;
 }
 
 .detail-tile-highlight {
