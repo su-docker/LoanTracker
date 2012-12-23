@@ -13,6 +13,10 @@ body, input {
     font-family: daniel;
 }
 
+h1 {
+	margin: 0px;
+}
+
 input {
     background: transparent;
     background-image: url("../image/line-blue.png");
@@ -27,8 +31,16 @@ input.error {
 }
 
 a {
+	text-decoration: none;
+}
+
+.ui-li-heading {
     color: #2489ce;
-    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.ui-li-desc {
+	/* font-size: 1em; */
 }
 
 a.disabled {
@@ -51,8 +63,8 @@ input:disabled {
 
 #add-loan-btn {
     background-image: url("../image/add.png");
-    width: 32px;
-    height: 32px;
+    width: 2.5em;
+    height: 2.5em;
     background-size: contain;
     background-repeat: no-repeat;
     top: 0px;
@@ -71,6 +83,7 @@ li {
     background-image: url("../image/line-thin.png");
     background-position: bottom;
     background-repeat: no-repeat;
+    background-size: 100% 4px;
 }
 
 .ui-title, .date {
@@ -80,9 +93,14 @@ li {
     background-size: 50% 4px;
 }
 
+.ui-icon {
+	width: 2em;
+	height: 2em;
+}
+
 .ui-icon-arrow-r {
     background-image: url("../image/forward.png");
-    background-size: 16px;
+    background-size: 2em;
     background-repeat: no-repeat;
 }
 
@@ -123,8 +141,12 @@ li {
 
 .note-sticky {
     position: absolute;
-    right:0px;
+    right:0.2em;
     z-index: 10;
+    background-image: url("../image/mark.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1em;
 }
 
 .note-sticky img {
@@ -132,7 +154,7 @@ li {
 	top: 0px;
 }
 
-.duration {
+.1duration {
 	position: absolute;
 	top: 20px;
 	left: 35px;

@@ -42,7 +42,7 @@ function LoanList() {
         ich.grabTemplates();
         for (var index in loans) {
             var loan = loans[index],
-                li = ich.listItem(loan);
+                li = ich.listItem(loan.forHuman());
             addListItemHandlers(li);
             li.data(loan);
             loansUl.append(li);

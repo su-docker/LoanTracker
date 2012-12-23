@@ -34,7 +34,12 @@
     </script>
     
     <script id="listItem" type="text/html">
-        <li><a>{{ name }}</a></li>
+        <li>
+			<a>
+				<h3 class='ui-li-heading'>{{ name }}</h3>
+				<p class='ui-li-desc'><b>{{amount}}/-</b> to be paid in <b>{{duration}}</b></p>
+			</a>
+		</li>
     </script>
 
     <script id="detailTile" type="text/html">
@@ -127,7 +132,6 @@
     </div>
     <div data-role="content" class="loan-visualizer">
         <div class="note-sticky">
-        	<img src="image/mark.png"/>
         	<div class="duration"></div>
         </div>
         <div id="graph-scroll">

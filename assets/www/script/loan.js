@@ -47,4 +47,12 @@ function Loan(details) {
         var lastValue = monthlyCalc[monthlyCalc.length - 1]
         return lastValue.duration;
     }
+    
+    this.forHuman = function() {
+    	return {
+    		name: this.name,
+    		duration: this.getEffectiveTenure().toHumanDuration(),
+    		amount: parseInt(this.amount).toRupees()
+    	}
+    }
 }
