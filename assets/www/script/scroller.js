@@ -19,7 +19,7 @@ function Scroller() {
     	var that = this;
     	$(".details-section div").remove();
     	this.startIndex = this.endIndex = 0;
-        this.append(1);
+        this.append(this.loan.getCurrentMonthNumber());
         $(".detail-tile").live("touchstart", function(e) {
         	var month = $(this).attr("class").match("(.)* (tile\-)([0-9]*)").pop()
         	that.highlight(month);

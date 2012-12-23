@@ -5,7 +5,7 @@ LoanStore.save = function (loan) {
     var allLoanNames = localStorage["loans"] ? JSON.parse(localStorage["loans"]) : {};
     allLoanNames[loan.name.toString()] = "true";
     localStorage["loans"] = JSON.stringify(allLoanNames);
-    localStorage[loan.name] = JSON.stringify(loan)
+    localStorage[loan.name] = JSON.stringify(loan.toSave());
 };
 
 LoanStore.deleteLoan = function (loan) {

@@ -17,7 +17,11 @@ function LoanVisualizer() {
             var month = $(this).data().month;
             self.graph.scrollTo(month);
             self.scroller.highlight(month);
-        })
+        });
+        
+        $(".back-to-list-loans").live("tap", function() {
+        	window.loanList.refresh();
+        });
 
     }
 
@@ -27,9 +31,11 @@ function LoanVisualizer() {
         var windowHeight = $(window).outerHeight(true),
             headerHeight = $(".header-section").outerHeight(true),
             availableHeight = windowHeight - headerHeight,
-            detailsSectionHeight = 250;
+            detailsSectionHeight = 255,
+            graphSectionHeight = availableHeight - detailsSectionHeight;
         $(".details-section").height(detailsSectionHeight);
-        $(".graph-section").height(availableHeight - detailsSectionHeight);
+        $(".graph-section").height(graphSectionHeight);
+        $(".scale").height(graphSectionHeight);
     }
 
     this.load = function (loan) {

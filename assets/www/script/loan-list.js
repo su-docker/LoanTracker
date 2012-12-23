@@ -42,12 +42,26 @@ function LoanList() {
         ich.grabTemplates();
         for (var index in loans) {
             var loan = loans[index],
-                li = ich.listItem(loan.forHuman());
+                li = ich.listItem(getDetails(loan));
             addListItemHandlers(li);
             li.data(loan);
             loansUl.append(li);
         }
         loansUl.listview('refresh');
+    }
+    
+    function getDetails(loan) {
+    	var loanDesc = loan.forHuman();
+    	var note = "";
+    	if(loan.getBalance() > 0) {
+    		note = "Pay " + loanDesc.balance + "/- over " + loanDesc.durationRemaining
+    	} else {
+    		note = "Debt free !!!"
+    	}
+    	return {
+    		name: loanDesc.name,
+    		description: note
+    	}
     }
 
     function addListItemHandlers(listItem) {
@@ -87,7 +101,8 @@ function LoanList() {
         $("#add-loan-amount").val(loan ? loan.amount : "");
         $("#add-loan-emi").val(loan ? loan.emi : "");
         $("#add-loan-interest").val(loan ? loan.interestRates[1] : "");
-        $("#add-loan-date").val(loan ? loan.date.toMonthYearLabel() : "");
+        $("#add-loan-date-month").val(loan ? loan.date.getMonth()+1 : "");
+        $("#add-loan-date-year").val(loan ? loan.date.getFullYear() : "");
         if(loan) {
             $("#add-loan-name").attr("disabled", "true");
         } else {

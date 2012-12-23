@@ -30,29 +30,68 @@ function Loan(details) {
         }
         return monthlyCalc;
     }
+    
+    this.getBalance = function() {
+    	var monthSplit = this.calculate(),
+    		currentMonthYear = new Date().toMonthYearLabel();
+    	for(var monthIndex in monthSplit) {
+    		if(monthSplit[monthIndex].date == currentMonthYear) {
+    			return monthSplit[monthIndex].balanceAmt
+    		}
+    	}
+    	return 0;
+    }
 
     this.addWindfall = function (month, amount, repeat) {
         var endMonth = repeat ? this.tenure : month;
         for (var i = month; i <= endMonth; i++) {
             this.windfall[i] = amount;
         }
+        LoanStore.save(this);
     }
 
     this.addInterestRates = function (month, percent) {
         this.interestRates[month] = percent;
+        LoanStore.save(this);
     }
 
-    this.getEffectiveTenure = function () {
+    this.getEffectiveTenure = function() {
         var monthlyCalc = this.calculate();
         var lastValue = monthlyCalc[monthlyCalc.length - 1]
         return lastValue.duration;
     }
     
+    this.getRemainingTenure = function() {
+    	return this.getEffectiveTenure() - this.getCurrentMonthNumber();
+    }
+    
+    this.getCurrentMonthNumber = function() {
+    	var date1 = this.date,
+    		date2 = new Date(),
+        	months;
+        var months = (date2.getFullYear() - date1.getFullYear()) * 12;
+        months -= date1.getMonth() + 1;
+        months += date2.getMonth() + 1;
+        return (months > this.getEffectiveTenure()) ? this.getEffectiveTenure() : months;
+    }
+    
     this.forHuman = function() {
     	return {
     		name: this.name,
-    		duration: this.getEffectiveTenure().toHumanDuration(),
-    		amount: parseInt(this.amount).toRupees()
+    		durationRemaining: this.getRemainingTenure().toHumanDuration(),
+    		balance: Math.round(this.getBalance()).toRupees()
+    	}
+    }
+    
+    this.toSave = function() {
+    	return {
+    		name: this.name,
+    		tenure: this.tenure,
+    		amount: this.amount,
+    		emi: this.emi,
+    		windfall: this.windfall,
+    		interestRates: this.interestRates,
+    		date: this.date
     	}
     }
 }

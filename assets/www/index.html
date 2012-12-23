@@ -37,7 +37,7 @@
         <li>
 			<a>
 				<h3 class='ui-li-heading'>{{ name }}</h3>
-				<p class='ui-li-desc'><b>{{amount}}/-</b> to be paid in <b>{{duration}}</b></p>
+				<p class='ui-li-desc'>{{ description }}</p>
 			</a>
 		</li>
     </script>
@@ -127,13 +127,14 @@
 
 <div data-role="page" id="loan-details" class="page">
     <div data-role="header" class="header-section">
-        <a href="#list-loans-page" class="back-btn"></a>
+        <a href="#list-loans-page" class="back-btn back-to-list-loans"></a>
         <h1></h1>
     </div>
     <div data-role="content" class="loan-visualizer">
         <div class="note-sticky">
         	<div class="duration"></div>
         </div>
+        <img class="scale" src="image/scale.png"/>
         <div id="graph-scroll">
             <div class="graph-section">
                 <div class="graph"></div>

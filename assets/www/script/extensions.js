@@ -34,6 +34,5 @@ Date.prototype.toMonthYearLabel = function () {
     return  month + "/" + year;
 }
 
-
 //JQuery mobile configuration
 $.event.special.swipe.horizontalDistanceThreshold = 100

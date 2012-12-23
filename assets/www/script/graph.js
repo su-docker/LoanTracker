@@ -9,7 +9,7 @@ function Graph() {
     this.load = function (loan) {
         this.loan = loan;
         this.refresh();
-        this.highlight(1);
+        this.scrollTo(this.loan.getCurrentMonthNumber());
     }
 
     this.refresh = function () {
@@ -31,12 +31,9 @@ function Graph() {
         var barsWidth = $(".bar").width() * loanData.length;
         $(".graph-section").css("width", barsWidth);
 
-        var that = this;
-        setTimeout(function () {
-            refreshScroller(that)
-        }, 1000);
+        refreshScroller(this);
 
-        $(".duration").html(this.loan.getEffectiveTenure().toHumanDuration());
+        $(".duration").html(this.loan.getRemainingTenure().toHumanDuration());
     }
 
     this.scrollTo = function (month) {
