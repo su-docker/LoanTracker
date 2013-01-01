@@ -7,6 +7,6 @@ document.addEventListener("deviceready", function() {
 	
 	$(".help").live("tap", function() {
 		$(this).toggle();
-	});
+	});	
 });
 	

@@ -1,10 +1,8 @@
 package com.asmi.debtfree;
 
-import android.os.Bundle;
-import android.view.Menu;
-import org.apache.cordova.*;
+import org.apache.cordova.DroidGap;
 
-import com.asmi.debtfree.R;
+import android.os.Bundle;
 
 public class MainActivity extends DroidGap {
 
@@ -15,9 +13,4 @@ public class MainActivity extends DroidGap {
 		// setContentView(R.layout.activity_main);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
 }

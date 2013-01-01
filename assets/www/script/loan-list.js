@@ -54,7 +54,7 @@ function LoanList() {
     	var loanDesc = loan.forHuman();
     	var note = "";
     	if(loan.getBalance() > 0) {
-    		note = "Pay " + loanDesc.balance + "/- over " + loanDesc.durationRemaining
+    		note = "Yet to pay " + loanDesc.balance + "/- over " + loanDesc.durationRemaining
     	} else {
     		note = "Debt free !!!"
     	}

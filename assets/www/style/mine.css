@@ -43,6 +43,11 @@ a {
 .ui-li-desc {
 	font-size: 0.9em;
 	color: #000000;
+	white-space: normal;
+}
+
+.ui-dialog {
+	margin-top: 0px;	
 }
 
 a.disabled {
