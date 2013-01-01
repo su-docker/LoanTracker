@@ -32,6 +32,7 @@ input.error {
 
 a {
 	text-decoration: none;
+	color: #2489ce;
 }
 
 .ui-li-heading {
@@ -41,6 +42,7 @@ a {
 
 .ui-li-desc {
 	font-size: 0.9em;
+	color: #000000;
 }
 
 a.disabled {
@@ -61,13 +63,20 @@ input:disabled {
 
 .ui-dialog .ui-header a.ui-btn { display:none; }
 
+.ui-title {
+	margin-top: 15px;
+}
+
+.ui-btn-left, .ui-btn-right {
+	top: 0px !important;
+}
+
 #add-loan-btn {
     background-image: url("../image/add.png");
     width: 2.5em;
     height: 2.5em;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 0px;
 }
 
 .back-btn {
@@ -139,32 +148,11 @@ li {
     overflow: hidden;
 }
 
-.note-sticky {
-    position: absolute;
-    left:0.2em;
-    z-index: 10;
-    background-image: url("../image/mark.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1em;
-}
-
-.note-sticky img {
-	position: relative;
-	top: 0px;
-}
-
-.1duration {
-	position: absolute;
-	top: 20px;
-	left: 35px;
-}
-
 .bar {
     display: inline-block;
     float: none;
     background-image: url("../image/bar.png");
-    background-size: auto auto; 
+    background-size: 100% 100%; 
     background-repeat: no-repeat;
     width: 20px;
 }
@@ -180,7 +168,7 @@ li {
 .detail-tile {
     width: 15em;
     display: inline-block;
-    margin: 2px;
+    padding: 2px;
     background-image: url("../image/sticky-pale.png");
     background-size: auto;
     background-repeat: no-repeat;
@@ -259,4 +247,91 @@ li {
 	position: absolute;
 	right: 0px;
 	width: 100%;
+}
+
+.note-sticky {
+    position: absolute;
+    left:0.2em;
+    z-index: 10;
+    background-image: url("../image/mark.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 18px;
+    padding-left: 5px;
+    width: 256px;
+    height: 65px;
+}
+
+.help-icon {
+    background-image: url("../image/help.png");
+    width: 2.5em;
+    height: 2.5em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 0px;
+}
+
+.help-close-icon {
+    background-image: url("../image/help-close.png");
+    width: 2.5em;
+    height: 2.5em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    right: 5px;
+}
+
+.help {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	position: absolute;
+	top: 0px;
+	z-index: 100;
+	display: none;
+}
+
+.help-add-new-note {
+	left: 10%;
+	top: 20%;
+}
+
+.help-add-new-note-arrow {
+	position: absolute;
+	left: 15%;
+	top: 3%;
+}
+
+.help-edit-note {
+	left: 15%;
+	top: 50%;
+}
+
+.help-delete-note {
+	left: 15%;
+	top: 70%;
+}
+
+.help-swipe-note {
+	left: 10%;
+	top: 15%;
+}
+
+.help-edit-emi-note {
+	left: 15%;
+	top: 70%;
+}
+
+.help-arrow-left {
+	position: absolute;
+	left: 2%;
+	top: 30%;
+}
+
+.help-arrow-right {
+	position: absolute;
+	right: 2%;
+	top: 30%;
 }

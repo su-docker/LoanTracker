@@ -34,5 +34,15 @@ Date.prototype.toMonthYearLabel = function () {
     return  month + "/" + year;
 }
 
+Date.prototype.daysInYear = function () {
+	var leapYear = (new Date(this.getFullYear(),1,29).getMonth() == 1);
+	return leapYear ? 366 : 365
+}
+
+Date.prototype.daysInMonth = function () {
+	var date = new Date(this.getFullYear(), this.getMonth()+1, 0);
+	return date.getDate();
+}
+
 //JQuery mobile configuration
 $.event.special.swipe.horizontalDistanceThreshold = 100

@@ -20,6 +20,8 @@
     <script src="script/loan-visualizer.js"></script>
     <script src="script/loan-store.js"></script>
     <script src="script/loan-list.js"></script>
+    <script src="script/help.js"></script>
+
     <script type="text/javascript">
 	    document.addEventListener("deviceready", function() {
 		    document.addEventListener("backbutton", function(e) {
@@ -82,119 +84,135 @@
 </head>
 
 <body style="margin: 0px">
-<div data-role="page" id="list-loans-page" class="page">
-    <script type="text/javascript">
-        $("#list-loans-page").on("pageinit", function () {
-        	window.loanVisualizer = new LoanVisualizer();
-            window.loanList = new LoanList();
-            window.loanList.refresh();
-        });
-    </script>
 
-    <div data-role="header">
-        <h1>Debt Free</h1>
-        <a id="add-loan-btn"></a>
-    </div>
-    <div data-role="content">
-        <ul data-role="listview" id="list-loans">
-        </ul>
-        <div class="instructions">
-            Swipe to delete <br/>
-            Tap hold to edit
-        </div>
-    </div>
-</div>
+	<div data-role="page" id="list-loans-page" class="page">
+	    <script type="text/javascript">
+	        $("#list-loans-page").on("pageinit", function () {
+	        	window.loanVisualizer = new LoanVisualizer();
+	            window.loanList = new LoanList();
+	            window.loanList.refresh();
+	        });
+	    </script>
+	
+	    <div data-role="header">
+	        <h1>Debt Free</h1>
+	        <a id="add-loan-btn"></a>
+	        <a class="help-icon"></a>
+	    </div>
+	    <div data-role="content">
+	        <ul data-role="listview" id="list-loans">
+	        </ul>
+	    </div>
+	    <div class="help">
+	    	<img src="image/help-arrow.png" class="help-add-new-note-arrow"/>
+	       	<div class="note-sticky help-add-new-note">
+	        	<b>TAP</b> to add new loan item
+	        </div>    
+	       	<div class="note-sticky help-edit-note">
+	        	<b>TAP HOLD</b> a loan to edit
+	        </div>    
+	       	<div class="note-sticky help-delete-note">
+	        	<b>SWIPE</b> a loan to delete
+	        </div>    
+	    </div>
+	</div>
 
-<div data-role="page" id="add-loan" class="page">
-    <div data-role="header">
-        <h1>Loan Details</h1>
-    </div>
-    <div data-role="content">
-        I have a loan named <input type="text" id="add-loan-name" placeholder="unique name"/>
-        of <input type="number" id="add-loan-amount" placeholder="amount"/>
-        with current interest rate at <input type="number" id="add-loan-interest" placeholder="%"/>
-        and paying <input type="number" id="add-loan-emi" placeholder="EMI"/>
-        per month as of date <input type="number" id="add-loan-date-month" placeholder="month"/>/<input type="number" id="add-loan-date-year" placeholder="year"/>
+	<div data-role="page" id="add-loan" class="page">
+	    <div data-role="header">
+	        <h1>Loan Details</h1>
+	    </div>
+	    <div data-role="content">
+	        I have a loan named <input type="text" id="add-loan-name" placeholder="unique name"/>
+	        of <input type="number" id="add-loan-amount" placeholder="amount"/>
+	        with current interest rate at <input type="number" id="add-loan-interest" placeholder="%"/>
+	        and paying <input type="number" id="add-loan-emi" placeholder="EMI"/>
+	        per month as of date <input type="number" id="add-loan-date-month" placeholder="month"/>/<input type="number" id="add-loan-date-year" placeholder="year"/>
+	
+	
+	        <div data-role="fieldcontain" class="center">
+	            <a id="add-loan-create" data-rel="back" data-inline="true" data-role='button' href='#'> Remember </a>
+	        </div>
+	    </div>
+	</div>
 
+	<div data-role="page" id="loan-details" class="page">
+	    <div data-role="header" class="header-section">
+	        <a href="#list-loans-page" class="back-btn back-to-list-loans"></a>
+	        <h1></h1>
+	        <a class="help-icon"></a>
+	    </div>
+	    <div data-role="content" class="loan-visualizer">
+	        <img class="scale" src="image/scale.png"/>
+	        <div id="graph-scroll">
+	            <div class="graph-section">
+	                <div class="graph"></div>
+	            </div>
+	        </div>
+	        <div id="stickies-scroll">
+	            <div class="details-section">
+	            </div>
+	        </div>
+	    </div>
+   	    <div class="help">
+	       	<img src="image/help-arrow-left.png" class="help-arrow-left"/>
+	       	<img src="image/help-arrow-right.png" class="help-arrow-right"/>
+	       	<div class="note-sticky help-swipe-note">
+	        	<b>SWIPE</b> to scroll through the graph
+	        </div>    
+	        <div class="note-sticky help-edit-emi-note">
+	        	<b>TAP</b> on the EMI or Interest to change
+	        </div>
+	    </div>	    
+	</div>
 
-        <div data-role="fieldcontain" class="center">
-            <a id="add-loan-create" data-rel="back" data-inline="true" data-role='button' href='#'> Remember </a>
-        </div>
-    </div>
-</div>
-</div>
+	<div data-role="page" id="edit-emi" class="page">
+	    <div data-role="header">
+	        <h1>Edit EMI</h1>
+	    </div>
+	    <div data-role="content">
+	        <div data-role="fieldcontain" class="ui-hide-label">
+	            <label for="edit-emi-amount">Amount</label>
+	            <input type="number" name="emi" id="edit-emi-amount" value="" placeholder="Amount"/>
+	            <div style="margin-top: 15px" id="edit-emi-repeat">
+		            <img src="image/tick.png" class="show"/>
+		            <label>Also future months</label>
+	            </div>
+	            <input type="hidden" id="edit-emi-month"/>
+	        </div>
+	        <div data-role="fieldcontain" class="center">
+	            <a id="edit-emi-close" data-rel="back" data-inline="true" data-role='button' href='#'> Update </a>
+	        </div>
+	    </div>
+	</div>
 
+	<div data-role="page" id="edit-interest" class="page">
+	    <div data-role="header">
+	        <h1>Edit Interest</h1>
+	    </div>
+	    <div data-role="content">
+	        <div data-role="fieldcontain" class="ui-hide-label">
+	            <label for="edit-interest-text">Interest</label>
+	            <input type="number" id="edit-interest-text" placeholder="%"/>
+	            <input type="hidden" id="edit-interest-month"/>
+	        </div>
+	        <div data-role="fieldcontain" class="center">
+	            <a id="edit-interest-close" data-rel="back" data-inline="true" data-role='button' href='#'> Update </a>
+	        </div>
+	    </div>
+	</div>
 
-<div data-role="page" id="loan-details" class="page">
-    <div data-role="header" class="header-section">
-        <a href="#list-loans-page" class="back-btn back-to-list-loans"></a>
-        <h1></h1>
-    </div>
-    <div data-role="content" class="loan-visualizer">
-        <div class="note-sticky">
-        	<div class="duration"></div>
-        </div>
-        <img class="scale" src="image/scale.png"/>
-        <div id="graph-scroll">
-            <div class="graph-section">
-                <div class="graph"></div>
-            </div>
-        </div>
-        <div id="stickies-scroll">
-            <div class="details-section">
-            </div>
-        </div>
-    </div>
-</div>
-
-<div data-role="page" id="edit-emi" class="page">
-    <div data-role="header">
-        <h1>Edit EMI</h1>
-    </div>
-    <div data-role="content">
-        <div data-role="fieldcontain" class="ui-hide-label">
-            <label for="edit-emi-amount">Amount</label>
-            <input type="text" name="emi" id="edit-emi-amount" value="" placeholder="Amount"/>
-            <div style="margin-top: 15px" id="edit-emi-repeat">
-	            <img src="image/tick.png" class="show"/>
-	            <label>Also future months</label>
-            </div>
-            <input type="hidden" id="edit-emi-month"/>
-        </div>
-        <div data-role="fieldcontain" class="center">
-            <a id="edit-emi-close" data-rel="back" data-inline="true" data-role='button' href='#'> Update </a>
-        </div>
-    </div>
-</div>
-
-<div data-role="page" id="edit-interest" class="page">
-    <div data-role="header">
-        <h1>Edit Interest</h1>
-    </div>
-    <div data-role="content">
-        <div data-role="fieldcontain" class="ui-hide-label">
-            <label for="edit-interest-text">Interest</label>
-            <input type="number" id="edit-interest-text" placeholder="%"/>
-            <input type="hidden" id="edit-interest-month"/>
-        </div>
-        <div data-role="fieldcontain" class="center">
-            <a id="edit-interest-close" data-rel="back" data-inline="true" data-role='button' href='#'> Update </a>
-        </div>
-    </div>
-</div>
-
-<div data-role="page" id="delete-confirmation" class="page">
-    <div data-role="header">
-        <h1>Confirm</h1>
-    </div>
-    <div data-role="content">
-        <p><span class="name"></span> will be gone forever. Sure?</p>
-
-        <div data-role="fieldcontain" class="center">
-            <a data-role="button" data-rel="back" data-inline="true" id="delete-loan-btn" href="#">Delete</a>
-        </div>
-    </div>
-</div>
+	<div data-role="page" id="delete-confirmation" class="page">
+	    <div data-role="header">
+	        <h1>Confirm</h1>
+	    </div>
+	    <div data-role="content">
+	        <p><span class="name"></span> will be gone forever. Sure?</p>
+	
+	        <div data-role="fieldcontain" class="center">
+	            <a data-role="button" data-rel="back" data-inline="true" id="delete-loan-btn" href="#">Delete</a>
+	        </div>
+	    </div>
+	</div>
 
 </body>
 </html>

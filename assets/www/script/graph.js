@@ -30,10 +30,8 @@ function Graph() {
 
         var barsWidth = $(".bar").width() * loanData.length;
         $(".graph-section").css("width", barsWidth);
-
         refreshScroller(this);
-
-        $(".duration").html(this.loan.getRemainingTenure().toHumanDuration());
+        //$(".duration").html(this.loan.getRemainingTenure().toHumanDuration());
     }
 
     this.scrollTo = function (month) {
@@ -48,6 +46,8 @@ function Graph() {
         $(selector).addClass("bar-highlight");
     }
 
+    //Private methods
+    
     function scaleHeight(balanceData, index) {
         var maxValue = Math.max.apply(Math, balanceData),
             currentValue = balanceData[index];
@@ -55,7 +55,9 @@ function Graph() {
     }
 
     function refreshScroller(self) {
-        self.graphScroll.refresh();
+        setTimeout(function () {
+        	self.graphScroll.refresh();
+        }, 1000);
     }
 
 }

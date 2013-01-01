@@ -58,10 +58,10 @@ function Scroller() {
         var tilesWidth = $(".detail-tile").outerWidth(true) * (this.endIndex - this.startIndex + 1);
         $(".details-section").css("width", $(".left-tile").outerWidth(true) + tilesWidth + $(".right-tile").outerWidth(true)); //iScroll needs the width of child div
         
-    	refreshScroll(that);
         var selector = ".tile-" + selectedMonth;
         that.stickyScroll.scrollToElement(selector, 100);
         that.highlight(selectedMonth);
+        refreshScroll(that);
     }
 
     this.scrollTo = function(month) {
@@ -73,6 +73,8 @@ function Scroller() {
         $(".detail-tile").removeClass("detail-tile-highlight");
         $(selector).addClass("detail-tile-highlight");
     }
+    
+    //Private methods
 
     function transformForHumans(monthlyData) {
         monthlyData.month = monthlyData.duration;
@@ -85,7 +87,9 @@ function Scroller() {
     }
 
     function refreshScroll(self) {
-        self.stickyScroll.refresh();
+    	setTimeout(function(){
+    		self.stickyScroll.refresh();
+    	}, 1000);
     }
 
     function addInterestRatesEditorHandlers() {

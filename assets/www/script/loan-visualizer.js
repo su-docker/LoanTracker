@@ -31,8 +31,9 @@ function LoanVisualizer() {
         var windowHeight = $(window).outerHeight(true),
             headerHeight = $(".header-section").outerHeight(true),
             availableHeight = windowHeight - headerHeight,
-            detailsSectionHeight = 255,
+            detailsSectionHeight = 290,
             graphSectionHeight = availableHeight - detailsSectionHeight;
+        console.log("setting the height of graph: " + graphSectionHeight);
         $(".details-section").height(detailsSectionHeight);
         $(".graph-section").height(graphSectionHeight);
         $(".scale").height(graphSectionHeight);

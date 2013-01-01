@@ -13,11 +13,11 @@ function Loan(details) {
             month = 1,
             interestRate = 0;
         while (month < this.tenure && balance > 0) {
-            var interestRate = this.interestRates[month] || interestRate,
-                interestPortion = (balance * interestRate / 100) / 12,
+            var date = new Date(this.date.getFullYear(), this.date.getMonth() + month),
+            	interestRate = this.interestRates[month] || interestRate,
+                interestPortion = ((balance * interestRate / 100) / date.daysInYear()) * date.daysInMonth(),
                 principlePortion = (this.windfall[month] || this.emi) - interestPortion,
                 balance = balance - principlePortion,
-                date = new Date(this.date.getFullYear(), this.date.getMonth() + month),
                 monthData = {"duration":month,
                     "interestRate":interestRate,
                     "EMIAmt":(interestPortion + principlePortion),
